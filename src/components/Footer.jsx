@@ -47,8 +47,8 @@ export default function Footer() {
       <div className="absolute inset-0 -z-10 bg-midnight/85" />
       <div className="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_1.2fr]">
         <div>
-          <Link to="/" className="inline-block" aria-label="August Occasions home">
-            <img src="/images/logo-footer.png" alt="August Occasions, attaching importance" width="1200" height="975" className="h-auto w-52 max-w-none drop-shadow-[0_0_28px_rgba(216,185,255,0.28)]" />
+          <Link to="/" className="inline-block rounded-md bg-white p-5 shadow-lg" aria-label="August Occasions home">
+            <img src={brand.logo} alt="August Occasions, attaching importance" width="1200" height="970" className="h-auto w-44 max-w-none" />
           </Link>
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/65">Premium cocktails and beautifully curated drink experiences for weddings, corporate events and private celebrations.</p>
           {social.length > 0 && (
@@ -61,6 +61,7 @@ export default function Footer() {
           <h3 className="eyebrow text-lilac">Explore</h3>
           <ul className="mt-5 space-y-3 text-sm">
             {nav.map((n) => <li key={n.to}><Link to={n.to} className="text-white/75 hover:text-lilac">{n.label}</Link></li>)}
+            <li><Link to="/feedback" className="text-white/75 hover:text-lilac">Share feedback</Link></li>
           </ul>
           <h3 className="eyebrow mt-8 text-lilac">Contact</h3>
           <ul className="mt-5 space-y-3 text-sm">

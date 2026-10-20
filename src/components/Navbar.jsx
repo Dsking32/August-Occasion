@@ -21,14 +21,14 @@ export default function Navbar() {
   }, [open]);
 
   const desktopLink = ({ isActive }) =>
-    `relative text-sm font-medium transition-colors hover:text-lilac ${isActive ? "text-lilac after:absolute after:-bottom-1.5 after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-lilac" : "text-white"}`;
+    `relative text-sm font-medium transition-colors hover:text-violet ${isActive ? "text-violet after:absolute after:-bottom-1.5 after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-violet" : "text-ink"}`;
 
   return (
     <>
       <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-6">
-        <nav aria-label="Main" className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/25 bg-[rgba(46,26,78,0.45)] py-1.5 pl-5 pr-2.5 shadow-[0_12px_40px_-14px_rgba(0,0,0,0.6)] backdrop-blur-xl backdrop-saturate-150 sm:pl-7 lg:px-8">
+        <nav aria-label="Main" className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-violet/10 bg-white/95 py-2 pl-5 pr-2.5 shadow-[0_12px_40px_-14px_rgba(25,6,41,0.55)] backdrop-blur-md sm:pl-7 lg:px-8">
           <Link to="/" aria-label="August Occasions home" onClick={close} className="shrink-0">
-            <img src={brand.logoNav} alt="August Occasions, attaching importance" width="700" height="569" className="h-14 w-auto max-w-none sm:h-16 lg:h-[4.5rem]" />
+            <img src={brand.logoNav} alt="August Occasions, attaching importance" width="1100" height="226" className="h-11 w-auto max-w-none sm:h-12 lg:h-[3.25rem]" />
           </Link>
 
           {/* On desktop every item is a direct flex child, so the gaps are all equal */}
@@ -37,7 +37,7 @@ export default function Navbar() {
             <Link to="/contact" className="btn btn-solid !px-6 !py-2.5">Book Now</Link>
           </div>
 
-          <button ref={toggle} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white hover:bg-white/10 lg:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-menu">
+          <button ref={toggle} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink hover:bg-mist lg:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-menu">
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
