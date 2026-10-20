@@ -3,7 +3,24 @@ import PageHero from "../components/PageHero.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Photo from "../components/Photo.jsx";
 import FinalCTASection from "../components/FinalCTASection.jsx";
-import { brand, ceo } from "../data/site.js";
+import { brand } from "../data/site.js";
+
+const ceo = {
+  name: "Olufunmilayo Ogunwo",
+  title: "Chief Executive Officer",
+  bio: [
+    "Olufunmilayo Ogunwo is the CEO of August Occasions, a drinks consulting and service company offering drinks and cocktail services for social and corporate events. She earned her first degree in Estate Management from Obafemi Awolowo University, Ile-Ife, in 2005, and an MBA from the University of Lagos in 2012.",
+    "In 2011, after four years in the real estate industry, she left her role as a Marketing Executive at a leading property development company to establish August Occasions. Her passion for professionalism and quality service in the events industry earned her a nomination by APPOEMN as one of the best drinks vendors in 2019.",
+    "Her drive to master the craft of bartending has taken her through cocktail trainings and workshops, and she has trained and mentored others who are also making waves in the industry.",
+    "Funmi also serves on the board of the Funmi Nehan Foundation, an NGO that organises monthly outreaches for the less privileged and needy in our society.",
+  ],
+  facts: [
+    { k: "Founded", v: "August Occasions, 2011" },
+    { k: "Education", v: "B.Sc. Estate Management, OAU · MBA, University of Lagos" },
+    { k: "Memberships", v: "Associate Member, NIESV · Member, NIM" },
+    { k: "Recognition", v: "APPOEMN nominee, best drinks vendor 2019" },
+  ],
+};
 
 const values = [
   { icon: Martini, title: "Crafted drinks", text: "Menus designed around your event and mixed to order." },
@@ -28,8 +45,8 @@ export default function About() {
 
       {/* Leadership */}
       <section className="overflow-hidden bg-ivory py-20 md:py-28">
-        <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 md:grid-cols-[0.9fr_1.1fr] lg:gap-24">
-          <Reveal className="relative mx-auto w-full max-w-sm md:max-w-none">
+        <div className="mx-auto grid max-w-6xl items-start gap-16 px-6 md:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+          <Reveal className="relative mx-auto w-full max-w-sm md:sticky md:top-8 md:max-w-none">
             <span aria-hidden="true" className="absolute inset-0 translate-x-4 translate-y-4 rounded-t-full border border-violet/40" />
             <div className="relative overflow-hidden rounded-t-full bg-mist">
               <img src={brand.portrait} alt="Portrait of the CEO of August Occasions" width="813" height="1016" className="aspect-[4/5] w-full object-cover object-top" />
@@ -42,9 +59,18 @@ export default function About() {
           <Reveal delay={0.1}>
             <p className="eyebrow text-violet">Leadership</p>
             <h2 className="h-section mt-4">Meet our <em className="text-violet">CEO</em></h2>
+            <p className="mt-3 font-serif text-3xl text-ink sm:text-4xl">{ceo.name}</p>
             <div className="mt-6 space-y-4 leading-relaxed text-muted">
               {ceo.bio.map((p) => <p key={p}>{p}</p>)}
             </div>
+            <dl className="mt-8 grid gap-px overflow-hidden border border-violet/15 bg-violet/15 sm:grid-cols-2">
+              {ceo.facts.map((f) => (
+                <div key={f.k} className="bg-white p-4 transition-colors duration-300 hover:bg-mist">
+                  <dt className="eyebrow text-violet">{f.k}</dt>
+                  <dd className="mt-1.5 text-sm leading-snug text-ink">{f.v}</dd>
+                </div>
+              ))}
+            </dl>
             <p className="mt-8 font-script text-4xl text-violet">...attaching importance</p>
           </Reveal>
         </div>
