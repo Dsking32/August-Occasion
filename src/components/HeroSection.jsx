@@ -10,15 +10,15 @@ export default function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-midnight/95 via-royal/70 to-transparent" />
       <div className="mx-auto w-full max-w-6xl px-6 pb-16 pt-32 sm:pt-36">
         <p className="eyebrow text-lilac">Premium Drinks &amp; Cocktail Service</p>
-        <h1 className="mt-5 text-[clamp(3.5rem,10vw,5.5rem)] leading-[0.95]">
-          For Every<br /><em className="text-lilac">Occasion.</em>
+        <h1 className="mt-5 text-[clamp(3.5rem,10vw,5.5rem)] leading-[0.95] lg:leading-[0.74]">
+          For Every<br /><em className="text-lilac lg:-mt-2 lg:inline-block">Occasion.</em>
         </h1>
         <p className="mt-6 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
           From intimate gatherings to grand celebrations, we craft exceptional drink experiences that turn your moments into unforgettable memories.
         </p>
-        <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row">
-          <Link to="/contact" className="btn btn-solid">Plan Your Event <ArrowRight size={16} /></Link>
-          <a href="#drinks" className="btn btn-line">Explore Our Drinks <ArrowRight size={16} /></a>
+        <div className="mt-9 flex flex-row flex-nowrap items-center gap-2.5 sm:gap-3">
+          <Link to="/contact" className="btn btn-solid whitespace-nowrap max-sm:flex-1 max-sm:justify-center max-sm:gap-1.5 max-sm:px-3 max-sm:py-3 max-sm:text-[0.78rem] max-sm:[&_svg]:hidden">Plan Your Event <ArrowRight size={16} /></Link>
+          <a href="#drinks" className="btn btn-line whitespace-nowrap max-sm:flex-1 max-sm:justify-center max-sm:gap-1.5 max-sm:px-3 max-sm:py-3 max-sm:text-[0.78rem] max-sm:[&_svg]:hidden">Explore Our Drinks <ArrowRight size={16} /></a>
         </div>
       </div>
     </section>

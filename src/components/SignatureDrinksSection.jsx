@@ -13,10 +13,12 @@ const categories = [
 export default function SignatureDrinksSection() {
   return (
     <section id="drinks" className="bg-ivory py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[1fr_1.1fr_1fr] lg:gap-14">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[1.25fr_1.05fr_1fr] lg:gap-12">
         <Reveal>
           <p className="eyebrow text-violet">Our Drinks</p>
-          <h2 className="h-section mt-4">Signature Creations<br />for <em className="text-violet">Unforgettable</em> Moments</h2>
+          <h2 className="h-section mt-4 text-balance lg:text-[2.5rem] lg:leading-[1.1] xl:text-[2.8rem]">
+            Signature Creations for <em className="text-violet">Unforgettable</em> Moments
+          </h2>
           <p className="mt-6 max-w-sm leading-relaxed text-muted">Every drink is crafted to look beautiful and taste even better, from classic cocktails to creative alcohol-free serves.</p>
           <Link to="/contact" className="btn btn-solid mt-8">Plan Your Menu <ArrowRight size={16} /></Link>
         </Reveal>

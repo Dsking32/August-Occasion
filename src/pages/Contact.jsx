@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -16,14 +15,15 @@ const occasions = [
   { value: "Product launch", icon: Rocket, hint: "Brand activations" },
   { value: "Something else", icon: Sparkles, hint: "Tell us your idea" },
 ];
+const guestOptions = ["Under 25", "25 to 50", "50 to 100", "100 to 200", "200+"];
 const drinkOptions = ["Cocktails", "Mocktails", "Exotic drinks", "Not sure yet"];
 const stepLabels = ["Occasion", "Details", "You"];
 const stepFields = [["eventType"], ["date", "guests"], ["name", "phone", "email"]];
 
 const schema = z.object({
-  eventType: z.string().min(1, "Choose an occasion to continue"),
+  eventType: z.string().min(1, "Choose an occasion"),
   date: z.string().min(1, "Choose your event date"),
-  guests: z.coerce.number({ invalid_type_error: "Enter the number of guests" }).min(1, "Enter the number of guests"),
+  guests: z.string().min(1, "Choose the number of guests"),
   venue: z.string().optional(),
   drinks: z.array(z.string()).optional(),
   name: z.string().min(2, "Enter your name"),
@@ -63,6 +63,13 @@ export default function Contact() {
   const v = watch();
   const wa = waUrl();
   const err = (k) => errors[k] && <p role="alert" className="mt-1.5 text-sm text-red-700">{errors[k].message}</p>;
+
+  // Step 2 moves on by itself as soon as both the date and the guest count are chosen
+  useEffect(() => {
+    if (step !== 1 || !v.date || !v.guests) return;
+    const t = setTimeout(() => setStep(2), 350);
+    return () => clearTimeout(t);
+  }, [step, v.date, v.guests]);
 
   const next = async () => { if (await trigger(stepFields[step])) setStep(step + 1); };
   const back = () => setStep(Math.max(0, step - 1));
@@ -112,8 +119,6 @@ export default function Contact() {
                 <li className="flex items-center gap-3 text-white/80"><MapPin size={18} className="shrink-0 text-lilac" />{contact.city}</li>
               </ul>
 
-              <p className="mt-6 text-sm text-white/65">Already worked with us? <Link to="/feedback" className="text-lilac underline underline-offset-4">Share your feedback</Link>.</p>
-
               <h3 className="mt-10 border-t border-white/15 pt-8 text-2xl">What happens next</h3>
               <ol className="mt-5 space-y-5">
                 {process.slice(1, 4).map((p, i) => (
@@ -152,7 +157,7 @@ export default function Contact() {
                   ))}
                 </ol>
 
-                <form onSubmit={(e) => { e.preventDefault(); if (step < 2) next(); }} noValidate className="mt-10">
+                <form onSubmit={(e) => e.preventDefault()} noValidate className="mt-10">
                   <motion.div key={step} {...slide}>
                       {step === 0 && (
                         <fieldset>
@@ -160,9 +165,9 @@ export default function Contact() {
                           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
                             {occasions.map(({ value, icon: Icon, hint }) => (
                               <label key={value} className="relative cursor-pointer">
-                                <input type="radio" value={value} className="peer sr-only" {...register("eventType")} />
-                                <span className="flex h-full flex-col gap-3 rounded-md border border-violet/20 bg-ivory p-4 transition-colors hover:border-violet peer-checked:border-violet peer-checked:bg-violet peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-vivid peer-checked:[&_.hint]:text-white/80">
-                                  <Icon size={24} strokeWidth={1.5} />
+                                <input type="radio" value={value} className="peer sr-only" {...register("eventType")} onClick={() => setTimeout(() => setStep(1), 220)} />
+                                <span className="group/c flex h-full flex-col gap-3 rounded-md border border-violet/20 bg-ivory p-4 transition-all duration-300 hover:-translate-y-1 hover:border-violet hover:bg-mist hover:shadow-[0_18px_36px_-18px_rgba(116,37,200,0.55)] peer-checked:hover:bg-violet peer-checked:border-violet peer-checked:bg-violet peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-vivid peer-checked:[&_.hint]:text-white/80">
+                                  <Icon size={24} strokeWidth={1.5} className="transition-transform duration-300 group-hover/c:scale-110" />
                                   <span className="font-serif text-xl leading-tight">{value}</span>
                                   <span className="hint text-xs leading-snug text-muted">{hint}</span>
                                 </span>
@@ -176,22 +181,22 @@ export default function Contact() {
                       {step === 1 && (
                         <div>
                           <h2 className="font-serif text-4xl leading-tight">The <em className="text-violet">details</em></h2>
-                          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+                          <div className="mt-8">
                             <label className="block text-sm font-medium">Event date<input type="date" className={field} min={new Date().toISOString().slice(0, 10)} {...register("date")} />{err("date")}</label>
-                            <label className="block text-sm font-medium">Number of guests<input type="number" min="1" inputMode="numeric" placeholder="e.g. 80" className={field} {...register("guests")} />{err("guests")}</label>
-                            <label className="block text-sm font-medium sm:col-span-2">Venue or area <span className="font-normal text-muted">(optional)</span><input placeholder="e.g. Victoria Island, Lagos" className={field} {...register("venue")} /></label>
                           </div>
                           <fieldset className="mt-7">
-                            <legend className="text-sm font-medium">Drinks you’re interested in <span className="font-normal text-muted">(optional)</span></legend>
+                            <legend className="text-sm font-medium">How many guests?</legend>
                             <div className="mt-3 flex flex-wrap gap-2.5">
-                              {drinkOptions.map((o) => (
+                              {guestOptions.map((o) => (
                                 <label key={o} className="cursor-pointer">
-                                  <input type="checkbox" value={o} className="peer sr-only" {...register("drinks")} />
-                                  <span className="block rounded-full border border-violet/25 px-5 py-2.5 text-sm transition-colors hover:border-violet peer-checked:border-violet peer-checked:bg-violet peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-vivid">{o}</span>
+                                  <input type="radio" value={o} className="peer sr-only" {...register("guests")} />
+                                  <span className="block rounded-full border border-violet/25 px-5 py-2.5 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-violet hover:bg-mist peer-checked:border-violet peer-checked:bg-violet peer-checked:text-white peer-checked:hover:bg-violet peer-focus-visible:ring-2 peer-focus-visible:ring-vivid">{o}</span>
                                 </label>
                               ))}
                             </div>
+                            {err("guests")}
                           </fieldset>
+                          <p className="mt-6 text-sm text-muted">Pick a date and guest count and we’ll take you to the next step.</p>
                         </div>
                       )}
 
@@ -202,6 +207,18 @@ export default function Contact() {
                             <label className="block text-sm font-medium">Your name<input autoComplete="name" className={field} {...register("name")} />{err("name")}</label>
                             <label className="block text-sm font-medium">Phone number<input type="tel" autoComplete="tel" className={field} {...register("phone")} />{err("phone")}</label>
                             <label className="block text-sm font-medium sm:col-span-2">Email <span className="font-normal text-muted">(optional)</span><input type="email" autoComplete="email" className={field} {...register("email")} />{err("email")}</label>
+                            <label className="block text-sm font-medium sm:col-span-2">Venue or area <span className="font-normal text-muted">(optional)</span><input placeholder="e.g. Victoria Island, Lagos" className={field} {...register("venue")} /></label>
+                            <fieldset className="sm:col-span-2">
+                              <legend className="text-sm font-medium">Drinks you’re interested in <span className="font-normal text-muted">(optional)</span></legend>
+                              <div className="mt-3 flex flex-wrap gap-2.5">
+                                {drinkOptions.map((o) => (
+                                  <label key={o} className="cursor-pointer">
+                                    <input type="checkbox" value={o} className="peer sr-only" {...register("drinks")} />
+                                    <span className="block rounded-full border border-violet/25 px-5 py-2.5 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-violet hover:bg-mist peer-checked:border-violet peer-checked:bg-violet peer-checked:text-white peer-checked:hover:bg-violet peer-focus-visible:ring-2 peer-focus-visible:ring-vivid">{o}</span>
+                                  </label>
+                                ))}
+                              </div>
+                            </fieldset>
                             <label className="block text-sm font-medium sm:col-span-2">Anything else we should know? <span className="font-normal text-muted">(optional)</span><textarea rows="3" className={field} {...register("message")} /></label>
                           </div>
                           <dl className="mt-7 grid gap-x-6 gap-y-2 rounded-md bg-mist p-5 text-sm sm:grid-cols-2">
@@ -212,13 +229,11 @@ export default function Contact() {
                       )}
                   </motion.div>
 
-                  <div className="mt-10 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className={`${step === 0 ? "mt-6" : "mt-10"} flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between`}>
                     {step > 0 ? (
                       <button type="button" onClick={back} className="inline-flex items-center gap-2 self-start py-2 text-sm font-medium text-violet hover:text-vivid"><ArrowLeft size={16} />Back</button>
                     ) : <span />}
-                    {step < 2 ? (
-                      <button type="button" onClick={next} className="btn btn-solid justify-center">Continue <ArrowRight size={16} /></button>
-                    ) : (
+                    {step < 2 ? null : (
                       <div className="flex flex-col gap-3 sm:flex-row">
                         {wa && <button type="button" onClick={send("whatsapp")} className="btn justify-center bg-[#25D366] text-white hover:bg-[#1fb957]"><WhatsAppIcon className="h-5 w-5" />Send on WhatsApp</button>}
                         {contact.email && <button type="button" onClick={send("email")} className="btn btn-outline justify-center"><Mail size={16} />Send by email</button>}
