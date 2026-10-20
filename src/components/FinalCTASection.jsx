@@ -8,6 +8,7 @@ export default function FinalCTASection() {
     <section className="relative isolate overflow-hidden bg-royal py-24 text-white md:py-32">
       <Photo name="cta-floral-detail" className="absolute inset-y-0 right-0 -z-20 h-full w-full object-cover opacity-60 lg:w-3/5" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-royal via-royal/85 to-royal/40" />
+      <span aria-hidden="true" className="absolute -bottom-32 left-1/4 -z-10 h-96 w-96 rounded-full bg-vivid/25 blur-[130px]" />
       <Reveal className="mx-auto max-w-6xl px-6">
         <h2 className="max-w-2xl text-[clamp(2.6rem,6vw,4.5rem)] leading-[1.02]">Let’s Create Something <em className="text-lilac">Beautiful</em> Together.</h2>
         <p className="mt-6 max-w-md text-lg text-white/80">Ready to plan your event? Get in touch with us today and let’s make it extraordinary.</p>

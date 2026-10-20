@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-royal: #190629;
-  --color-midnight: #10051B;
-  --color-violet: #7425C8;
-  --color-vivid: #922EFF;
-  --color-lilac: #D8B9FF;
-  --color-ivory: #FAF7F3;
-  --color-mist: #F0E8F7;
-  --color-ink: #21132F;
-  --color-muted: #776B82;
+  --color-royal: #2B0A4E;
+  --color-midnight: #14041F;
+  --color-violet: #C8135F;
+  --color-vivid: #FF3D7F;
+  --color-lilac: #FF9CC0;
+  --color-ivory: #FFF8F4;
+  --color-mist: #FFEAF0;
+  --color-ink: #26102E;
+  --color-muted: #7B6A7F;
+  --color-plum: #6D28D9;
+  --color-coral: #FF6B4A;
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Manrope", system-ui, sans-serif;
   --font-script: "Caveat", cursive;
@@ -26,11 +28,11 @@ h1 em, h2 em { font-style: italic; }
 
 /* In the components layer so Tailwind utilities (hidden, lg:inline-flex...) can override them */
 @layer components {
-  .btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.95rem 1.9rem; font-weight: 600; font-size: 0.9rem; border-radius: 9999px; transition: background .3s, color .3s, border-color .3s, transform .3s; }
+  .btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.95rem 1.9rem; font-weight: 600; font-size: 0.9rem; border-radius: 9999px; transition: background .3s, background-position .5s, color .3s, border-color .3s, transform .3s, box-shadow .3s; }
   .btn svg { transition: transform .3s; }
   .btn:hover svg { transform: translateX(4px); }
-  .btn-solid { background: var(--color-violet); color: #fff; }
-  .btn-solid:hover { background: var(--color-vivid); }
+  .btn-solid { background: linear-gradient(120deg, #E91E78 0%, #FF6B4A 50%, #E91E78 100%); background-size: 200% 100%; color: #fff; }
+  .btn-solid:hover { background-position: 100% 0; box-shadow: 0 12px 28px -10px rgb(255 61 127 / .7); }
   .btn-light { background: #fff; color: var(--color-violet); }
   .btn-light:hover { background: var(--color-lilac); color: var(--color-royal); }
   .btn-outline { border: 1px solid var(--color-violet); color: var(--color-violet); }

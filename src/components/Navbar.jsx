@@ -34,7 +34,7 @@ export default function Navbar() {
           {/* On desktop every item is a direct flex child, so the gaps are all equal */}
           <div className="hidden lg:contents">
             {nav.map((n) => <NavLink key={n.to} to={n.to} end className={desktopLink}>{n.label}</NavLink>)}
-            <Link to="/contact" className="btn btn-solid !px-6 !py-2.5 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-8px_rgba(146,46,255,0.8)]">Book Now</Link>
+            <Link to="/contact" className="btn btn-solid !px-6 !py-2.5 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-8px_rgba(255,61,127,0.7)]">Book Now</Link>
           </div>
 
           <button ref={toggle} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white hover:bg-white/10 lg:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-menu">

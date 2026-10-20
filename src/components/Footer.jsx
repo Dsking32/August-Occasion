@@ -64,14 +64,14 @@ export default function Footer() {
     <footer className="relative isolate overflow-hidden bg-midnight text-white">
       <Photo name="footer-background" alt="" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-25" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-midnight/90 via-midnight/85 to-midnight" />
-      <span aria-hidden="true" className="absolute -left-32 top-10 -z-10 h-80 w-80 rounded-full bg-violet/25 blur-[110px]" />
+      <span aria-hidden="true" className="absolute -left-32 top-10 -z-10 h-80 w-80 rounded-full bg-plum/35 blur-[110px]" />
 
       <div className="mx-auto max-w-6xl px-6 pb-10 pt-20">
         {/* Top row: brand + newsletter */}
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div>
             <Link to="/" className="inline-block transition-transform duration-300 hover:scale-[1.03]" aria-label="August Occasions home">
-              <img src="/images/logo-footer.png" alt="August Occasions, attaching importance" width="1200" height="975" className="h-auto w-48 max-w-none drop-shadow-[0_0_28px_rgba(216,185,255,0.28)] sm:w-56" />
+              <img src="/images/logo-footer.png" alt="August Occasions, attaching importance" width="1200" height="975" className="h-auto w-48 max-w-none drop-shadow-[0_0_28px_rgba(255,156,192,0.25)] sm:w-56" />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/65">Premium cocktails and beautifully curated drink experiences for weddings, corporate events and private celebrations.</p>
             {social.length > 0 && (
@@ -80,7 +80,7 @@ export default function Footer() {
                   const Icon = socialIcon[s.label.toLowerCase()];
                   return (
                     <li key={s.href}>
-                      <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`August Occasions on ${s.label}`} className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-violet hover:bg-violet hover:shadow-[0_12px_28px_-10px_rgba(146,46,255,0.9)]">
+                      <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`August Occasions on ${s.label}`} className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-violet hover:bg-violet hover:shadow-[0_12px_28px_-10px_rgba(255,61,127,0.8)]">
                         {Icon ? <Icon className="h-5 w-5" /> : s.label}
                       </a>
                     </li>

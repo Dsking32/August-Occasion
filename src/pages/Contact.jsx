@@ -166,7 +166,7 @@ export default function Contact() {
                             {occasions.map(({ value, icon: Icon, hint }) => (
                               <label key={value} className="relative cursor-pointer">
                                 <input type="radio" value={value} className="peer sr-only" {...register("eventType")} onClick={() => setTimeout(() => setStep(1), 220)} />
-                                <span className="group/c flex h-full flex-col gap-3 rounded-md border border-violet/20 bg-ivory p-4 transition-all duration-300 hover:-translate-y-1 hover:border-violet hover:bg-mist hover:shadow-[0_18px_36px_-18px_rgba(116,37,200,0.55)] peer-checked:hover:bg-violet peer-checked:border-violet peer-checked:bg-violet peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-vivid peer-checked:[&_.hint]:text-white/80">
+                                <span className="group/c flex h-full flex-col gap-3 rounded-md border border-violet/20 bg-ivory p-4 transition-all duration-300 hover:-translate-y-1 hover:border-violet hover:bg-mist hover:shadow-[0_18px_36px_-18px_rgba(233,30,120,0.5)] peer-checked:hover:bg-violet peer-checked:border-violet peer-checked:bg-violet peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-vivid peer-checked:[&_.hint]:text-white/80">
                                   <Icon size={24} strokeWidth={1.5} className="transition-transform duration-300 group-hover/c:scale-110" />
                                   <span className="font-serif text-xl leading-tight">{value}</span>
                                   <span className="hint text-xs leading-snug text-muted">{hint}</span>

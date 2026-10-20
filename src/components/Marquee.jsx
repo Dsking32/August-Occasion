@@ -3,7 +3,7 @@ const items = ["Cocktails", "Exotic Drinks", "Weddings", "Corporate Events", "Pr
 export default function Marquee() {
   const group = [...items, ...items];
   return (
-    <div className="marquee overflow-hidden bg-violet py-4 text-white" aria-hidden="true">
+    <div className="marquee overflow-hidden bg-gradient-to-r from-plum via-violet to-coral py-4 text-white" aria-hidden="true">
       <div className="marquee-track">
         {[0, 1].map((k) => (
           <ul key={k} className="flex shrink-0">

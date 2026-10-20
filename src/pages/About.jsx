@@ -118,7 +118,7 @@ export default function About() {
           </Reveal>
           <div className="mt-12 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="mr-3.5 md:col-span-8">
-              <div className="zoom overflow-hidden shadow-[14px_14px_0_0_#D8B9FF]">
+              <div className="zoom overflow-hidden shadow-[14px_14px_0_0_#FF9CC0]">
                 <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="aspect-[4/3] w-full object-cover" />
               </div>
             </Reveal>
