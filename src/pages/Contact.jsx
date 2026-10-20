@@ -182,7 +182,7 @@ export default function Contact() {
                         <div>
                           <h2 className="font-serif text-4xl leading-tight">The <em className="text-violet">details</em></h2>
                           <div className="mt-8">
-                            <label className="block text-sm font-medium">Event date<input type="date" className={field} min={new Date().toISOString().slice(0, 10)} {...register("date")} />{err("date")}</label>
+                            <label className="block text-sm font-medium">Event date<input type="date" className={`${field} min-w-0 max-w-full`} min={new Date().toISOString().slice(0, 10)} {...register("date")} />{err("date")}</label>
                           </div>
                           <fieldset className="mt-7">
                             <legend className="text-sm font-medium">How many guests?</legend>

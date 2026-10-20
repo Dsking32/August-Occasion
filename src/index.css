@@ -57,3 +57,8 @@ h1 em, h2 em { font-style: italic; }
   .kenburns, .marquee-track { animation: none; }
   .zoom img, .btn, .btn svg { transition: none; }
 }
+
+/* iOS Safari renders date inputs wider than their box and centres the value; keep them inside the card, left aligned */
+input[type="date"] { display: block; width: 100%; min-width: 0; max-width: 100%; -webkit-appearance: none; appearance: none; text-align: left; min-height: 3.25rem; }
+input[type="date"]::-webkit-date-and-time-value { text-align: left; min-height: 1.4em; }
+input[type="date"]::-webkit-datetime-edit { padding: 0; }
