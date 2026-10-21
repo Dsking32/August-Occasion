@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import Photo from "./Photo.jsx";
 
 export default function HeroSection() {
   return (
     <section id="top" className="relative isolate flex min-h-[36rem] items-center overflow-hidden bg-midnight text-white lg:h-[40rem]">
-      <Photo name="hero-cocktail-bar" priority className="kenburns absolute inset-0 -z-20 h-full w-full object-cover object-[68%_center] lg:object-center" />
+      <img
+        src="/images/hero-cocktail-bar.jpg"
+        alt=""
+        fetchPriority="high"
+        onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/images/gallery-celebration.webp"; }}
+        className="kenburns absolute inset-0 -z-20 h-full w-full object-cover object-[68%_center] lg:object-center"
+      />
       <div className="absolute inset-0 -z-10 bg-midnight/55 lg:bg-transparent" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-midnight/95 via-royal/70 to-transparent" />
       <span aria-hidden="true" className="absolute -bottom-24 right-0 -z-10 h-96 w-96 rounded-full bg-vivid/25 blur-[130px]" />

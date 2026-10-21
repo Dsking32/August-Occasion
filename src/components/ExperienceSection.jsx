@@ -35,7 +35,7 @@ export default function ExperienceSection() {
         </div>
         <Reveal className="relative mt-16 grid gap-4 sm:grid-cols-[1.4fr_1fr]">
           <div className="overflow-hidden rounded-sm">
-            <Photo name="experience-bartender" className="h-56 w-full object-cover sm:h-72 lg:h-80" />
+            <Photo name="experience-bartender" className="h-56 w-full object-cover object-[50%_48%] sm:h-72 lg:h-80" />
           </div>
           <div className="hidden overflow-hidden rounded-sm sm:block">
             <Photo name="experience-bar-setup" className="h-72 w-full object-cover lg:h-80" />
