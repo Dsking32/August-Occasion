@@ -13,7 +13,7 @@ export const photos = {
   "experience-bar-setup": { query: "elegant mobile bar setup", orientation: "landscape", alt: "Three orange cocktails with grapefruit and passion fruit garnish", fallback: A },
   "occasion-wedding": { query: "luxury wedding reception", orientation: "portrait", alt: "An elegant wedding reception", fallback: E },
   "occasion-corporate": { query: "corporate cocktail event", orientation: "portrait", alt: "Guests at a corporate cocktail event", fallback: B },
-  "occasion-private-party": { query: "cocktail party guests celebrating", orientation: "portrait", alt: "Guests celebrating with colourful drinks", fallback: D },
+  "occasion-private-party": { query: "cocktail party guests celebrating", orientation: "portrait", alt: "A bartender in an August Occasions jacket pouring a drink at a party", fallback: D },
   "occasion-product-launch": { query: "product launch event", orientation: "portrait", alt: "A stylish product launch event", fallback: C },
   "occasion-dinner": { query: "candlelight dinner flowers", orientation: "portrait", alt: "An elegant private dinner with candles and flowers", fallback: B },
   "signature-cocktails": { query: "cocktail photography stone surface", orientation: "portrait", alt: "Three passion fruit cocktails garnished with rosemary, served on a tray", fallback: B },

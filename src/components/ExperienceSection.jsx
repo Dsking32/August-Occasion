@@ -12,7 +12,7 @@ const features = [
 
 export default function ExperienceSection() {
   return (
-    <section id="about" className="bg-ivory py-20 md:py-28">
+    <section id="about" className="bg-mist py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.4fr] lg:gap-16">
           <Reveal>
@@ -40,7 +40,7 @@ export default function ExperienceSection() {
           <div className="hidden overflow-hidden rounded-sm sm:block">
             <Photo name="experience-bar-setup" className="h-72 w-full object-cover lg:h-80" />
           </div>
-          <p className="absolute -bottom-6 right-4 -rotate-3 bg-ivory px-4 font-script text-3xl text-violet sm:right-10 sm:text-4xl">Cheers to every moment</p>
+          <p className="absolute -bottom-6 right-4 -rotate-3 bg-mist px-4 font-script text-3xl text-violet sm:right-10 sm:text-4xl">Cheers to every moment</p>
         </Reveal>
       </div>
     </section>

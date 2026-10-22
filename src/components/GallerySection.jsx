@@ -4,6 +4,7 @@ import { A11y, Autoplay, EffectCoverflow, Keyboard } from "swiper/modules";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import Reveal from "./Reveal.jsx";
 import { useLocalPhotos } from "../lib/localPhotos.js";
+import { galleryPhotos } from "../data/gallery.js";
 import { useReducedMotion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -49,7 +50,9 @@ function Lightbox({ items, index, setIndex, onClose }) {
 
 export default function GallerySection() {
   const reduce = useReducedMotion();
-  const items = useLocalPhotos(slots);
+  const local = useLocalPhotos(slots);
+  // New event photos first (they load instantly), then the older slot-based photos.
+  const items = [...galleryPhotos, ...local];
   const [sw, setSw] = useState(null);
   const [active, setActive] = useState(0);
   const [box, setBox] = useState(null);
@@ -90,8 +93,9 @@ export default function GallerySection() {
       >
         {items.map((it, i) => (
           <SwiperSlide key={it.name} className="!w-[72%] sm:!w-[46%] lg:!w-[30%]">
-            <button onClick={() => setBox(i)} aria-label={`Open photo ${pad(i + 1)} of ${pad(n)}`} className="zoom block w-full overflow-hidden rounded-md border border-white/15">
-              <img src={it.src} alt={it.alt} loading={i < 2 ? "eager" : "lazy"} className="aspect-[3/4] w-full object-cover" />
+            <button onClick={() => setBox(i)} aria-label={`Open photo ${pad(i + 1)} of ${pad(n)}`} className="zoom relative block aspect-[3/4] w-full overflow-hidden rounded-md border border-white/15 bg-royal">
+              {it.fit === "contain" && <img src={it.src} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full scale-125 object-cover opacity-45 blur-2xl" />}
+              <img src={it.src} alt={it.alt} loading={i < 3 ? "eager" : "lazy"} decoding="async" style={it.pos ? { objectPosition: it.pos } : undefined} className={`relative h-full w-full ${it.fit === "contain" ? "object-contain" : "object-cover"}`} />
             </button>
           </SwiperSlide>
         ))}

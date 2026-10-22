@@ -6,7 +6,7 @@ export const nav = [
 
 export const brand = {
   logo: "/images/logo-full.png",
-  logoNav: "/images/logo-nav.png",
+  logoNav: "/images/logo-white.png",
   group: "/images/team-group.jpg",
   four: "/images/team-four.jpg",
   portrait: "/images/portrait.jpg",

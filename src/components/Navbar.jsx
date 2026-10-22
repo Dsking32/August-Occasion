@@ -28,7 +28,7 @@ export default function Navbar() {
       <header className="absolute inset-x-0 top-0 z-50 bg-gradient-to-b from-midnight/60 to-transparent">
         <nav aria-label="Main" className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 sm:px-6 lg:px-8">
           <Link to="/" aria-label="August Occasions home" onClick={close} className="shrink-0 transition-transform duration-300 hover:scale-105">
-            <img src={brand.logoNav} alt="August Occasions, attaching importance" width="700" height="569" className="h-14 w-auto max-w-none sm:h-16 lg:h-[4.5rem]" />
+            <img src={brand.logoNav} alt="August Occasions, attaching importance" width="740" height="585" className="h-[4.5rem] w-auto max-w-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:h-24 lg:h-28" />
           </Link>
 
           {/* On desktop every item is a direct flex child, so the gaps are all equal */}
