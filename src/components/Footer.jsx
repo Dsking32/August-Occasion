@@ -71,7 +71,7 @@ export default function Footer() {
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div>
             <Link to="/" className="inline-block transition-transform duration-300 hover:scale-[1.03]" aria-label="August Occasions home">
-              <img src="/images/logo-footer.png" alt="August Occasions, attaching importance" width="1200" height="975" className="h-auto w-48 max-w-none drop-shadow-[0_0_28px_rgba(255,156,192,0.25)] sm:w-56" />
+              <img src="/images/logo-white.png" alt="August Occasions, attaching importance" width="740" height="585" className="h-auto w-48 max-w-none drop-shadow-[0_0_28px_rgba(255,156,192,0.25)] sm:w-56" />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/65">Premium cocktails and beautifully curated drink experiences for weddings, corporate events and private celebrations.</p>
             {social.length > 0 && (
