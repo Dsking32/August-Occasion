@@ -9,6 +9,7 @@ export const brand = {
   logoNav: "/images/logo-white.png",
   group: "/images/team-group.jpg",
   four: "/images/team-four.jpg",
+  event: "/images/team-event.webp",
   portrait: "/images/portrait.jpg",
 };
 

@@ -134,12 +134,13 @@ export default function About() {
           </div>
 
           {/* Both team photos are shown whole, never cropped */}
-          <div className="relative mt-12 grid gap-4 sm:mt-14 sm:block sm:pb-14">
-            <div className="sm:w-[74%]">
-              <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="block h-auto w-full rounded-md shadow-lg sm:rounded-none sm:shadow-[14px_14px_0_0_var(--color-lilac)]" />
+          <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-12 sm:gap-6">
+            <div className="sm:col-span-8">
+              <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="block aspect-[4/3] w-full rounded-md object-cover shadow-lg sm:aspect-auto sm:h-full sm:rounded-none sm:shadow-[14px_14px_0_0_var(--color-lilac)]" />
             </div>
-            <div className="overflow-hidden rounded-md shadow-lg sm:absolute sm:bottom-0 sm:right-0 sm:w-[36%] sm:rounded-none sm:border-8 sm:border-mist sm:shadow-2xl">
-              <img src={brand.four} alt="Four members of the August Occasions team" loading="lazy" width="1030" height="824" className="block h-auto w-full" />
+            <div className="grid gap-4 sm:col-span-4 sm:gap-6">
+              <img src={brand.event} alt="The August Occasions service team in uniform at an event" loading="lazy" width="1280" height="949" className="block aspect-[4/3] w-full rounded-md object-cover shadow-lg sm:rounded-none" />
+              <img src={brand.four} alt="Four members of the August Occasions team" loading="lazy" width="1030" height="824" className="block aspect-[4/3] w-full rounded-md object-cover object-[50%_30%] shadow-lg sm:rounded-none" />
             </div>
           </div>
 
