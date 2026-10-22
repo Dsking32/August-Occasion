@@ -7,7 +7,7 @@ const ceo = {
   name: "Olufunmilayo Ogunwo",
   title: "Chief Executive Officer",
   bio: [
-    "Olufunmilayo Ogunwo is the CEO of August Occasions, a drinks consulting and service company offering drinks and cocktail services for social and corporate events.",
+    "Olufunmilayo Ogunwo is the CEO of August Occasions, a drinks consulting and service company offering drinks and cocktail services for social and corporate events. She is also the General Secretary of the Nigerian Event Host and Beverage Association (NEHBA).",
     "After four years in real estate, she left her role as a Marketing Executive at a leading property development company to build August Occasions. Her commitment to professionalism and quality service earned her an APPOEMN nomination as one of the best drinks vendors in 2019.",
     "Her drive to master the craft of bartending has taken her through cocktail trainings and workshops, and she has trained and mentored others who are also making waves in the industry.",
     "Funmi also serves on the board of the Funmi Nehan Foundation, an NGO that organises monthly outreaches for the less privileged and needy in our society.",
@@ -17,6 +17,8 @@ const ceo = {
     { year: "2011", text: "Founded August Occasions after four years in real estate" },
     { year: "2012", text: "MBA, University of Lagos" },
     { year: "2019", text: "Nominated by APPOEMN as one of the best drinks vendors" },
+    { year: "2023", text: "Became General Secretary of NEHBA (first tenure, 2023 to 2025)" },
+    { year: "2025", text: "Re-elected General Secretary of NEHBA (second tenure, 2025 to 2027)" },
   ],
   memberships: ["Associate Member, Nigerian Institution of Estate Surveyors and Valuers", "Member, Nigerian Institute of Management"],
 };
@@ -50,13 +52,18 @@ export default function About() {
           <div className="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
             <div className="lg:sticky lg:top-10">
               <span aria-hidden="true" className="absolute inset-0 translate-x-4 translate-y-4 bg-lilac" />
-              <img src={brand.portrait} alt="Olufunmilayo Ogunwo, CEO of August Occasions" width="813" height="1016" className="relative block h-auto w-full" />
+              <img src="/images/ceo-portrait.webp" alt="Olufunmilayo Ogunwo, CEO of August Occasions" width="771" height="1080" className="relative block h-auto w-full" />
             </div>
           </div>
 
           <div className="lg:col-span-7">
             <h2 className="text-[clamp(2.4rem,5vw,4.2rem)] leading-[0.98] tracking-[-0.01em]">{ceo.name}</h2>
             <p className="mt-3 font-script text-3xl text-violet">{ceo.title}</p>
+            <div className="mt-8 flex flex-col gap-1 border border-violet/30 bg-white p-5 sm:flex-row sm:items-center sm:gap-6">
+              <p className="font-serif text-2xl leading-tight text-violet sm:whitespace-nowrap">General Secretary, NEHBA</p>
+              <p className="text-sm leading-snug text-muted">Nigerian Event Host and Beverage Association. First tenure 2023 to 2025, second tenure 2025 to 2027.</p>
+            </div>
+
             <p className="mt-10 border-l-2 border-violet pl-6 font-serif text-2xl leading-snug sm:text-3xl">
               Every occasion deserves to be taken seriously, and every guest deserves to feel looked after.
             </p>
@@ -71,13 +78,14 @@ export default function About() {
 
         {/* Her path, in order */}
         <div className="mx-auto mt-20 max-w-6xl px-6">
-          <ol className="relative grid gap-10 md:grid-cols-4 md:gap-6">
-            <span aria-hidden="true" className="absolute left-[0.45rem] top-2 h-[calc(100%-1rem)] w-px bg-violet/30 md:left-0 md:top-[0.45rem] md:h-px md:w-full" />
+          <ol className="relative grid gap-10 md:grid-cols-3 md:gap-x-6 lg:grid-cols-6">
+            <span aria-hidden="true" className="absolute left-[0.45rem] top-2 h-[calc(100%-1rem)] w-px bg-violet/30 md:hidden" />
+            <span aria-hidden="true" className="absolute left-0 top-[0.45rem] hidden h-px w-full bg-violet/30 lg:block" />
             {ceo.timeline.map((t) => (
               <li key={t.year} className="group relative pl-8 md:pl-0 md:pt-8">
                 <span aria-hidden="true" className="absolute left-0 top-2 h-3.5 w-3.5 rounded-full border-2 border-violet bg-ivory transition-colors duration-300 group-hover:bg-violet md:top-0" />
-                <span className="block font-serif text-5xl leading-none text-violet md:text-6xl">{t.year}</span>
-                <span className="mt-2 block max-w-[16rem] text-sm leading-snug text-ink">{t.text}</span>
+                <span className="block font-serif text-5xl leading-none text-violet">{t.year}</span>
+                <span className="mt-2 block max-w-[14rem] text-sm leading-snug text-ink">{t.text}</span>
               </li>
             ))}
           </ol>
