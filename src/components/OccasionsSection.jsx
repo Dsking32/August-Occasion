@@ -8,12 +8,13 @@ import Photo from "./Photo.jsx";
 import { useReducedMotion } from "framer-motion";
 import "swiper/css";
 
+// Every card uses a real August Occasions photo from public/images/gallery. fit "contain" shows the whole photo over a soft blurred backdrop.
 const occasions = [
-  { photo: "occasion-wedding", title: "Weddings", text: "Signature drinks for your big day." },
-  { photo: "occasion-corporate", title: "Corporate Events", text: "Polished service for launches and dinners." },
+  { src: "/images/gallery/rosemary-slush-shots.webp", fit: "contain", alt: "Frozen cocktails with rosemary sprigs and blueberries, labelled for a wedding", title: "Weddings", text: "Signature drinks for your big day." },
+  { src: "/images/gallery/geometric-bar.webp", alt: "A white geometric bar with the August Occasions logo, syrups and a drink dispenser", title: "Corporate Events", text: "Polished service for launches and dinners." },
   { photo: "occasion-private-party", title: "Private Parties", text: "Celebrations made effortless." },
-  { photo: "occasion-product-launch", title: "Product Launches", text: "Drinks that match your brand." },
-  { photo: "occasion-dinner", title: "Other Occasions", text: "Anniversaries, dinners and more." },
+  { src: "/images/gallery/monogram-cocktails.webp", fit: "contain", alt: "Strawberry cocktails with custom monogram labels on the glasses", title: "Product Launches", text: "Drinks that match your brand." },
+  { src: "/images/gallery/tray-service.webp", alt: "A waiter in an August Occasions bow tie serving drinks on a tray", title: "Other Occasions", text: "Anniversaries, dinners and more." },
 ];
 
 export default function OccasionsSection() {
@@ -47,7 +48,14 @@ export default function OccasionsSection() {
             {occasions.map((o, i) => (
               <SwiperSlide key={o.title} className={i % 2 ? "lg:!mt-12" : ""}>
                 <Link to="/contact" className="group zoom relative block aspect-[3/4.2] overflow-hidden rounded-md border border-white/15 transition-colors hover:border-vivid">
-                  <Photo name={o.photo} className="h-full w-full object-cover" />
+                  {o.src ? (
+                    <>
+                      {o.fit === "contain" && <img src={o.src} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full scale-125 object-cover opacity-45 blur-2xl" />}
+                      <img src={o.src} alt={o.alt} loading="lazy" decoding="async" className={`relative h-full w-full ${o.fit === "contain" ? "object-contain" : "object-cover"}`} />
+                    </>
+                  ) : (
+                    <Photo name={o.photo} className="h-full w-full object-cover" />
+                  )}
                   <span className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/30 to-transparent" />
                   <span className="absolute inset-x-0 bottom-0 p-5">
                     <span className="flex items-start justify-between gap-2">

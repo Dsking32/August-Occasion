@@ -134,13 +134,12 @@ export default function About() {
           </div>
 
           {/* Both team photos are shown whole, never cropped */}
-          <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-12 sm:gap-6">
-            <div className="sm:col-span-8">
-              <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="block aspect-[4/3] w-full rounded-md object-cover shadow-lg sm:aspect-auto sm:h-full sm:rounded-none sm:shadow-[14px_14px_0_0_var(--color-lilac)]" />
+          <div className="relative mt-14 sm:pb-14">
+            <div className="mr-3.5 sm:mr-0 sm:w-[74%]">
+              <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="block h-auto w-full shadow-[14px_14px_0_0_var(--color-lilac)]" />
             </div>
-            <div className="grid gap-4 sm:col-span-4 sm:gap-6">
-              <img src={brand.event} alt="The August Occasions service team in uniform at an event" loading="lazy" width="1280" height="949" className="block aspect-[4/3] w-full rounded-md object-cover shadow-lg sm:rounded-none" />
-              <img src={brand.four} alt="Four members of the August Occasions team" loading="lazy" width="1030" height="824" className="block aspect-[4/3] w-full rounded-md object-cover object-[50%_30%] shadow-lg sm:rounded-none" />
+            <div className="ml-auto mt-8 w-3/5 border-[6px] border-mist shadow-2xl sm:absolute sm:bottom-0 sm:right-0 sm:mt-0 sm:w-[36%] sm:border-8">
+              <img src={brand.four} alt="Four members of the August Occasions team" loading="lazy" width="1030" height="824" className="block h-auto w-full" />
             </div>
           </div>
 

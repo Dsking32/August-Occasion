@@ -1,4 +1,4 @@
-const items = ["Cocktails", "Exotic Drinks", "Weddings", "Corporate Events", "Private Parties", "Product Launches"];
+const items = ["Drinks Service", "Cocktail Service", "Mobile Bar", "After-Party Entertainment", "Training & Internship", "Welcome Drinks"];
 
 export default function Marquee() {
   const group = [...items, ...items];

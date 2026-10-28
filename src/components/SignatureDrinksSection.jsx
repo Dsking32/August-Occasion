@@ -20,7 +20,7 @@ export default function SignatureDrinksSection() {
             Signature Creations for <em className="text-violet">Unforgettable</em> Moments
           </h2>
           <p className="mt-6 max-w-sm leading-relaxed text-muted">Every drink is crafted to look beautiful and taste even better, from classic cocktails to creative alcohol-free serves.</p>
-          <Link to="/contact" className="btn btn-solid mt-8">Plan Your Menu <ArrowRight size={16} /></Link>
+          <Link to="/contact" className="btn btn-solid mt-8">Plan Your Event <ArrowRight size={16} /></Link>
         </Reveal>
         <Reveal delay={0.1} className="order-first mb-6 lg:order-none lg:mb-0">
           <div className="relative mx-auto max-w-md lg:max-w-none">

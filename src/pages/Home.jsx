@@ -1,6 +1,7 @@
 import Marquee from "../components/Marquee.jsx";
 import HeroSection from "../components/HeroSection.jsx";
 import ExperienceSection from "../components/ExperienceSection.jsx";
+import ServicesSection from "../components/ServicesSection.jsx";
 import OccasionsSection from "../components/OccasionsSection.jsx";
 import SignatureDrinksSection from "../components/SignatureDrinksSection.jsx";
 import GallerySection from "../components/GallerySection.jsx";
@@ -12,10 +13,11 @@ export default function Home() {
     <>
       <HeroSection />
       <Marquee />
-      <GallerySection />
+      <ExperienceSection />
+      <ServicesSection />
       <OccasionsSection />
       <SignatureDrinksSection />
-      <ExperienceSection />
+      <GallerySection />
       <TestimonialsSection />
       <FinalCTASection />
     </>

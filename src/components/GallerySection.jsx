@@ -11,7 +11,7 @@ import "swiper/css/effect-coverflow";
 
 // Only slots that have a real, local photo are shown. Add a slot name here when you have another distinct photo
 // (for example "gallery-toast" or "gallery-bartender"). Make sure no two slots use the same picture.
-const slots = ["gallery-cocktail", "signature-cocktails", "gallery-event-bar", "drink-purple-cocktail", "hero-cocktail-bar", "gallery-celebration", "drink-citrus-mocktail", "experience-bar-setup"];
+const slots = ["gallery-cocktail", "signature-cocktails", "drink-purple-cocktail", "hero-cocktail-bar", "drink-citrus-mocktail", "experience-bar-setup"];
 const pad = (n) => String(n).padStart(2, "0");
 function Lightbox({ items, index, setIndex, onClose }) {
   const closeBtn = useRef(null);
