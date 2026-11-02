@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section id="top" className="relative isolate flex min-h-[36rem] items-center overflow-hidden bg-midnight text-white lg:h-[40rem]">
+    <section id="top" className="relative isolate flex min-h-[36rem] items-center overflow-hidden bg-midnight text-white lg:min-h-[42rem]">
       <img
         src="/images/hero-cocktail-bar.jpg"
         alt=""
@@ -15,12 +15,12 @@ export default function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-midnight/95 via-royal/70 to-transparent" />
       <span aria-hidden="true" className="absolute -bottom-24 right-0 -z-10 h-96 w-96 rounded-full bg-vivid/25 blur-[130px]" />
       <span aria-hidden="true" className="absolute -top-20 right-1/4 -z-10 h-80 w-80 rounded-full bg-plum/30 blur-[120px]" />
-      <div className="mx-auto w-full max-w-6xl px-6 pb-16 pt-32 sm:pt-36">
+      <div className="mx-auto w-full max-w-6xl px-6 pb-16 pt-40 sm:pt-44 lg:pt-48">
         <p className="eyebrow text-lilac">Premium Drinks &amp; Event Services</p>
         <h1 className="mt-5 text-[clamp(3.5rem,10vw,5.5rem)] leading-[0.95] lg:leading-[0.74]">
           For Every<br /><em className="text-lilac lg:-mt-2 lg:inline-block">Occasion.</em>
         </h1>
-        <p className="mt-6 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
           From classy corporate events to unforgettable celebrations, we provide exceptional drinks and cocktail service: premium drinks, cooling service, professional waiters and bartenders, and seamless delivery. You celebrate, and we handle all the logistics for you. We do drinks right.
         </p>
         <div className="mt-9 flex flex-row flex-nowrap items-center gap-2.5 sm:gap-3">
