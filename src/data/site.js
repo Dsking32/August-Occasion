@@ -52,3 +52,5 @@ export const whatsapp = {
 
 export const waUrl = (text = whatsapp.message) =>
   whatsapp.number ? `https://wa.me/${whatsapp.number.replace(/\D/g, "")}?text=${encodeURIComponent(text)}` : "";
+
+export const googleReviewUrl = "https://www.google.com/search?q=August+Occasions+Lagos+reviews";
