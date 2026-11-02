@@ -15,13 +15,13 @@ export default function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-midnight/95 via-royal/70 to-transparent" />
       <span aria-hidden="true" className="absolute -bottom-24 right-0 -z-10 h-96 w-96 rounded-full bg-vivid/25 blur-[130px]" />
       <span aria-hidden="true" className="absolute -top-20 right-1/4 -z-10 h-80 w-80 rounded-full bg-plum/30 blur-[120px]" />
-      <div className="mx-auto w-full max-w-6xl px-6 pb-16 pt-40 sm:pt-44 lg:pt-48">
+      <div className="mx-auto w-full max-w-6xl px-6 pb-16 pt-44 sm:pt-48 lg:pt-56">
         <p className="eyebrow text-lilac">Premium Drinks &amp; Event Services</p>
         <h1 className="mt-5 text-[clamp(3.5rem,10vw,5.5rem)] leading-[0.95] lg:leading-[0.74]">
           For Every<br /><em className="text-lilac lg:-mt-2 lg:inline-block">Occasion.</em>
         </h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
-          From classy corporate events to unforgettable celebrations, we provide exceptional drinks and cocktail service: premium drinks, cooling service, professional waiters and bartenders, and seamless delivery. You celebrate, and we handle all the logistics for you. We do drinks right.
+          From classy corporate events to unforgettable celebrations, we provide exceptional drinks and cocktail service, from premium drinks and cooling to professional waiters and bartenders. You celebrate and we handle all the logistics for you. We do drinks right.
         </p>
         <div className="mt-9 flex flex-row flex-nowrap items-center gap-2.5 sm:gap-3">
           <Link to="/contact" className="btn btn-solid whitespace-nowrap max-sm:flex-1 max-sm:justify-center max-sm:gap-1.5 max-sm:px-3 max-sm:py-3 max-sm:text-[0.78rem] max-sm:[&_svg]:hidden">Plan Your Event <ArrowRight size={16} /></Link>
