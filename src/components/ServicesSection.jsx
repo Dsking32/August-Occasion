@@ -3,11 +3,11 @@ import { ArrowRight, GlassWater, GraduationCap, Martini, PartyPopper, Truck, Win
 import Reveal from "./Reveal.jsx";
 
 const services = [
-  { icon: GlassWater, title: "Drinks Service", text: "Soft drinks, mocktails and premium drinks, served with care at your event." },
-  { icon: Martini, title: "Cocktail Service", text: "Classic and signature cocktails, mixed fresh at your bar." },
-  { icon: Truck, title: "Mobile Bar Service", text: "A styled bar we bring to your venue, set up and ready to pour." },
+  { icon: GlassWater, title: "Drinks Service", text: "A wide variety of drinks, from water, soft drinks and malt drinks to fruit juices, served professionally at your events." },
+  { icon: Martini, title: "Cocktail Service", text: "Classic and signature cocktails, mixed fresh at the bar and served with impeccable presentation." },
+  { icon: Truck, title: "Mobile Bar Service", text: "A luxury bar brought to your event for premium drinks display, perfectly handled by our professional bartenders." },
   { icon: PartyPopper, title: "After-Party Entertainment", text: "Drinks and good company that keep the celebration going after the main event." },
-  { icon: GraduationCap, title: "Training & Internship", text: "Hands-on training and internship opportunities for aspiring bartenders." },
+  { icon: GraduationCap, title: "Training & Internship", text: "Hands-on training in drinks or cocktail service, and internship opportunities to learn on the job with access to mentorship from the CEO." },
   { icon: Wine, title: "Welcome Drinks", text: "A chilled first pour that greets your guests as they arrive." },
 ];
 

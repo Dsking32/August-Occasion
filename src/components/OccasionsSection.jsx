@@ -13,7 +13,7 @@ const occasions = [
   { src: "/images/gallery/rosemary-slush-shots.webp", fit: "contain", alt: "Frozen cocktails with rosemary sprigs and blueberries, labelled for a wedding", title: "Weddings", text: "Signature drinks for your big day." },
   { src: "/images/gallery/geometric-bar.webp", alt: "A white geometric bar with the August Occasions logo, syrups and a drink dispenser", title: "Corporate Events", text: "Polished service for launches and dinners." },
   { photo: "occasion-private-party", title: "Private Parties", text: "Celebrations made effortless." },
-  { src: "/images/gallery/monogram-cocktails.webp", fit: "contain", alt: "Strawberry cocktails with custom monogram labels on the glasses", title: "Product Launches", text: "Drinks that match your brand." },
+  { src: "/images/gallery/monogram-cocktails.webp", fit: "contain", alt: "Strawberry cocktails with custom monogram labels on the glasses", title: "Burial Receptions", text: "Dignified service for gatherings after the service." },
   { src: "/images/gallery/tray-service.webp", alt: "A waiter in an August Occasions bow tie serving drinks on a tray", title: "Other Occasions", text: "Anniversaries, dinners and more." },
 ];
 

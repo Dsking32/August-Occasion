@@ -3,16 +3,16 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Briefcase, Check, Heart, Mail, MapPin, PartyPopper, Phone, Rocket, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Briefcase, Check, Heart, Mail, MapPin, PartyPopper, Phone, Flower2, Sparkles } from "lucide-react";
 import PageHero from "../components/PageHero.jsx";
 import WhatsAppIcon from "../components/WhatsAppIcon.jsx";
 import { contact, process, waUrl } from "../data/site.js";
 
 const occasions = [
   { value: "Wedding", icon: Heart, hint: "Receptions and engagements" },
-  { value: "Corporate event", icon: Briefcase, hint: "Launches, dinners, awards" },
+  { value: "Corporate event", icon: Briefcase, hint: "Launches, dinner and award nights, end of year parties, team bonding" },
   { value: "Private party", icon: PartyPopper, hint: "Birthdays and celebrations" },
-  { value: "Product launch", icon: Rocket, hint: "Brand activations" },
+  { value: "Burial reception", icon: Flower2, hint: "Receptions after the service" },
   { value: "Something else", icon: Sparkles, hint: "Tell us your idea" },
 ];
 const guestOptions = ["Under 25", "25 to 50", "50 to 100", "100 to 200", "200+"];

@@ -16,7 +16,7 @@ export const galleryPhotos = [
   g("pouring-drink", "A bartender in an August Occasions jacket pouring a drink into a crystal glass beside white flowers"),
   g("tray-service", "A waiter in an August Occasions bow tie serving red and golden drinks on a tray"),
   g("bar-team", "The August Occasions bar team standing around a lit bar", "contain"),
-  g("team-prepping", "August Occasions bartenders in purple chef jackets stocking baskets with drinks", "contain"),
+  g("team-baskets", "The August Occasions team in purple and white chef jackets with baskets of soft drinks", "contain"),
   g("geometric-bar", "A white geometric bar with the August Occasions logo, syrups and a drink dispenser"),
   g("bartender-at-bar", "A smiling bartender at an August Occasions bar next to a framed couple portrait", "contain"),
   g("chefs-cooler", "Two bartenders loading chilled soft drinks from a cooler"),
@@ -24,4 +24,5 @@ export const galleryPhotos = [
   g("fresh-juice-bucket", "A bucket of fresh juice bottles with August Occasions labels", "contain"),
   g("cooler-baskets", "Drinks in baskets and a cooler packed with ice for event service"),
   g("iced-soft-drinks", "A tub of soft drinks and juices chilling on ice"),
+  g("waiter-water", "An August Occasions waiter in a purple bow tie holding a tray of bottled water beside tall white flowers", "contain"),
 ];

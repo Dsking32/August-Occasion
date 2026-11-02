@@ -66,7 +66,7 @@ export default function GallerySection() {
           <div>
             <p className="eyebrow text-lilac">Gallery</p>
             <h2 className="h-section mt-4">Moments We’ve <em className="text-lilac">Made Special</em></h2>
-            <p className="mt-5 max-w-md leading-relaxed text-white/70">A look at the bars, tables and toasts we have brought to life.</p>
+            <p className="mt-5 max-w-md leading-relaxed text-white/70">A look at our bars, drinks and some of the events we have brought to life with our exceptional services.</p>
           </div>
           <div className="flex items-center gap-4">
             <span className="mr-1 font-serif text-2xl text-lilac" aria-live="polite">{pad(active + 1)} <span className="text-white/40">/ {pad(n)}</span></span>

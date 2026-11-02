@@ -6,8 +6,8 @@ import { reviews } from "../data/site.js";
 
 // Until real reviews are added to `reviews` in src/data/site.js, a brand statement is shown instead.
 const statement = {
-  text: "Every glass is made with care, every detail is planned with you, and every guest is looked after from the first pour to the last toast.",
-  name: "The August Experience",
+  text: "The waiters paid attention to every little detail and ensured the guests were well looked after from the beginning of the event till the end. Excellence at its peak.",
+  name: "August Occasions client",
   event: "",
 };
 

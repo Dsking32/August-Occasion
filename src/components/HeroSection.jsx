@@ -21,7 +21,7 @@ export default function HeroSection() {
           For Every<br /><em className="text-lilac lg:-mt-2 lg:inline-block">Occasion.</em>
         </h1>
         <p className="mt-6 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
-          From intimate gatherings to grand celebrations, we craft exceptional drink experiences that turn your moments into unforgettable memories.
+          From classy corporate events to unforgettable celebrations, we provide exceptional drinks and cocktail service: premium drinks, cooling service, professional waiters and bartenders, and seamless delivery. You celebrate, and we handle all the logistics for you. We do drinks right.
         </p>
         <div className="mt-9 flex flex-row flex-nowrap items-center gap-2.5 sm:gap-3">
           <Link to="/contact" className="btn btn-solid whitespace-nowrap max-sm:flex-1 max-sm:justify-center max-sm:gap-1.5 max-sm:px-3 max-sm:py-3 max-sm:text-[0.78rem] max-sm:[&_svg]:hidden">Plan Your Event <ArrowRight size={16} /></Link>
