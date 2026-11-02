@@ -51,7 +51,6 @@ export default function About() {
         <div className="mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-12 lg:gap-14">
           <div className="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
             <div className="lg:sticky lg:top-10">
-              <span aria-hidden="true" className="absolute inset-0 translate-x-4 translate-y-4 bg-lilac" />
               <img src="/images/ceo-portrait.webp" alt="Olufunmilayo Ogunwo, CEO of August Occasions" width="771" height="1080" className="relative block h-auto w-full" />
             </div>
           </div>
@@ -104,7 +103,7 @@ export default function About() {
           </div>
 
           <div className="relative pb-80 sm:pb-60">
-            <div className="zoom overflow-hidden rounded-sm shadow-[16px_16px_0_0_var(--color-vivid)]">
+            <div className="zoom overflow-hidden rounded-sm shadow-2xl">
               <Photo name="experience-bar-setup" alt="" className="aspect-[3/2] w-full object-cover" />
             </div>
             <div className="absolute -bottom-0 left-0 right-4 rounded-sm border border-white/15 bg-midnight/95 p-6 shadow-2xl backdrop-blur sm:left-8 sm:right-auto sm:w-[26rem] sm:p-8">
@@ -136,7 +135,7 @@ export default function About() {
           {/* Both team photos are shown whole, never cropped */}
           <div className="relative mt-14 sm:pb-14">
             <div className="mr-3.5 sm:mr-0 sm:w-[74%]">
-              <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="block h-auto w-full shadow-[14px_14px_0_0_var(--color-lilac)]" />
+              <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="block h-auto w-full shadow-xl" />
             </div>
             <div className="ml-auto mt-8 w-3/5 border-[6px] border-mist shadow-2xl sm:absolute sm:bottom-0 sm:right-0 sm:mt-0 sm:w-[36%] sm:border-8">
               <img src={brand.four} alt="Four members of the August Occasions team" loading="lazy" width="1030" height="824" className="block h-auto w-full" />

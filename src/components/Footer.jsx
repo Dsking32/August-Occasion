@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import Photo from "./Photo.jsx";
@@ -10,39 +9,6 @@ const social = [
   { label: "Instagram", href: "https://www.instagram.com/augustoccasions" },
   { label: "TikTok", href: "https://www.tiktok.com/@augustoccasions" },
 ];
-
-const endpoint = import.meta.env.VITE_NEWSLETTER_ENDPOINT;
-
-function Newsletter() {
-  const [email, setEmail] = useState("");
-  const [state, setState] = useState({ status: "idle", msg: "" });
-
-  const submit = async (e) => {
-    e.preventDefault();
-    if (!/^\S+@\S+\.\S+$/.test(email)) return setState({ status: "error", msg: "Please enter a valid email address." });
-    if (!endpoint) return setState({ status: "error", msg: "Sign-up isn’t connected yet. Message us on WhatsApp instead." });
-    setState({ status: "loading", msg: "" });
-    try {
-      const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email }) });
-      if (!res.ok) throw new Error();
-      setEmail("");
-      setState({ status: "success", msg: "Thank you. You’re on the list." });
-    } catch {
-      setState({ status: "error", msg: "Something went wrong. Please try again." });
-    }
-  };
-
-  return (
-    <form onSubmit={submit} noValidate>
-      <label htmlFor="newsletter-email" className="sr-only">Email address</label>
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <input id="newsletter-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Your email address" aria-invalid={state.status === "error"} aria-describedby="newsletter-msg" className="min-w-0 flex-1 rounded-full border border-white/25 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/50" />
-        <button disabled={state.status === "loading"} className="btn btn-solid justify-center">{state.status === "loading" ? "Sending..." : "Subscribe"}<ArrowRight size={16} /></button>
-      </div>
-      <p id="newsletter-msg" role="status" className={`mt-3 min-h-5 text-sm ${state.status === "error" ? "text-[#ffb4c8]" : "text-lilac"}`}>{state.msg}</p>
-    </form>
-  );
-}
 
 const InstagramIcon = (p) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...p}>
@@ -64,36 +30,24 @@ export default function Footer() {
     <footer className="relative isolate overflow-hidden bg-midnight text-white">
       <Photo name="footer-background" alt="" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-25" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-midnight/90 via-midnight/85 to-midnight" />
-      <span aria-hidden="true" className="absolute -left-32 top-10 -z-10 h-80 w-80 rounded-full bg-plum/35 blur-[110px]" />
 
       <div className="mx-auto max-w-6xl px-6 pb-10 pt-20">
-        {/* Top row: brand + newsletter */}
+        {/* Top row: brand + enquiry */}
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div>
             <Link to="/" className="inline-block transition-transform duration-300 hover:scale-[1.03]" aria-label="August Occasions home">
-              <img src="/images/logo-footer-white.png" alt="August Occasions, attaching importance" width="1200" height="975" className="h-auto w-56 max-w-none drop-shadow-[0_0_28px_rgba(255,156,192,0.25)] sm:w-56" />
+              <img src="/images/logo-footer-white.png" alt="August Occasions, attaching importance" width="1200" height="975" className="h-auto w-56 max-w-none sm:w-56" />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/65">Premium cocktails and beautifully curated drink experiences for weddings, corporate events and private celebrations.</p>
-            {social.length > 0 && (
-              <ul className="mt-7 flex gap-3">
-                {social.map((s) => {
-                  const Icon = socialIcon[s.label.toLowerCase()];
-                  return (
-                    <li key={s.href}>
-                      <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`August Occasions on ${s.label}`} className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-violet hover:bg-violet hover:shadow-[0_12px_28px_-10px_rgba(255,61,127,0.8)]">
-                        {Icon ? <Icon className="h-5 w-5" /> : s.label}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md sm:p-9">
-            <h3 className="font-serif text-3xl sm:text-4xl">Stay in the <em className="text-lilac">Loop</em></h3>
-            <p className="mb-6 mt-2 text-sm text-white/65">Get updates on new drinks, events and exclusive offers.</p>
-            <Newsletter />
+          <div className="lg:border-l lg:border-white/15 lg:pl-16">
+            <h3 className="font-serif text-3xl leading-tight sm:text-4xl">Planning an <em className="text-lilac">event?</em></h3>
+            <p className="mb-6 mt-3 max-w-sm text-sm leading-relaxed text-white/65">Tell us the date, the venue and the number of guests, and we will send a drinks plan and quote.</p>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/contact" className="btn btn-solid">Plan Your Event <ArrowRight size={16} /></Link>
+              {wa && <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn-line"><WhatsAppIcon className="h-4 w-4" />WhatsApp us</a>}
+            </div>
           </div>
         </div>
 
@@ -127,7 +81,6 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-2 text-xs text-white/45 sm:flex-row">
           <p>© {new Date().getFullYear()} August Occasions. All rights reserved.</p>
-          <p className="font-serif text-sm italic text-white/55">…attaching importance</p>
         </div>
       </div>
     </footer>

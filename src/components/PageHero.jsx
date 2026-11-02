@@ -11,8 +11,6 @@ export default function PageHero({ eyebrow, title, text, image, photo }) {
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-midnight via-royal/60 to-royal/80" />
       ) : (
         <>
-          <div className="absolute -right-40 -top-40 -z-10 h-[34rem] w-[34rem] rounded-full bg-violet/35 blur-[120px]" />
-          <div className="absolute -bottom-52 -left-40 -z-10 h-[28rem] w-[28rem] rounded-full bg-vivid/15 blur-[120px]" />
         </>
       )}
       <div className="mx-auto w-full max-w-6xl px-6 pb-14 pt-36 md:pb-16">

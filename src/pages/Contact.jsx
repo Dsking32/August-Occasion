@@ -94,10 +94,9 @@ export default function Contact() {
       />
 
       <section className="bg-ivory py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-8 px-6 lg:grid-cols-[0.9fr_1.4fr] lg:gap-10">
+        <div className="mx-auto grid max-w-6xl gap-8 px-6 lg:grid-cols-[0.9fr_1.4fr] lg:items-start lg:gap-10">
           {/* Direct contact */}
           <aside className="relative overflow-hidden rounded-md bg-royal p-8 text-white sm:p-10 lg:sticky lg:top-28 lg:self-start">
-            <span aria-hidden="true" className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-violet/40 blur-[90px]" />
             <div className="relative">
               <p className="eyebrow text-lilac">Prefer to talk?</p>
               <h2 className="mt-3 text-4xl leading-tight">We’re one message <em className="text-lilac">away</em></h2>

@@ -13,8 +13,6 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 -z-10 bg-midnight/55 lg:bg-transparent" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-midnight/95 via-royal/70 to-transparent" />
-      <span aria-hidden="true" className="absolute -bottom-24 right-0 -z-10 h-96 w-96 rounded-full bg-vivid/25 blur-[130px]" />
-      <span aria-hidden="true" className="absolute -top-20 right-1/4 -z-10 h-80 w-80 rounded-full bg-plum/30 blur-[120px]" />
       <div className="mx-auto w-full max-w-6xl px-6 pb-16 pt-44 sm:pt-48 lg:pt-56">
         <p className="eyebrow text-lilac">Premium Drinks &amp; Event Services</p>
         <h1 className="mt-5 text-[clamp(3.5rem,10vw,5.5rem)] leading-[0.95] lg:leading-[0.74]">

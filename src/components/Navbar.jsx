@@ -12,7 +12,6 @@ export default function Navbar() {
   useEffect(() => {
     if (!open) return;
     document.body.style.overflow = "hidden";
-    firstLink.current?.focus();
     const onKey = (e) => { if (e.key === "Escape") { setOpen(false); toggle.current?.focus(); } };
     const onResize = () => { if (window.innerWidth >= 1024) setOpen(false); };
     window.addEventListener("keydown", onKey);
@@ -48,7 +47,7 @@ export default function Navbar() {
           <ul className="space-y-4">
             {nav.map((n, i) => (
               <li key={n.to}>
-                <NavLink ref={i === 0 ? firstLink : null} to={n.to} end onClick={close} className={({ isActive }) => `font-serif text-3xl ${isActive ? "text-lilac" : "text-white"}`}>{n.label}</NavLink>
+                <NavLink ref={i === 0 ? firstLink : null} to={n.to} end onClick={close} className={({ isActive }) => `font-serif text-3xl outline-none focus:outline-none focus-visible:underline ${isActive ? "text-lilac" : "text-white"}`}>{n.label}</NavLink>
               </li>
             ))}
           </ul>
