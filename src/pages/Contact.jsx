@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -15,7 +15,7 @@ const occasions = [
   { value: "Burial reception", icon: Flower2, hint: "Receptions after the service" },
   { value: "Something else", icon: Sparkles, hint: "Tell us your idea" },
 ];
-const guestOptions = ["Under 25", "25 to 50", "50 to 100", "100 to 200", "200+"];
+const guestOptions = ["100", "200", "500", "1000", "2000+"];
 const drinkOptions = ["Cocktails", "Mocktails", "Exotic drinks", "Not sure yet"];
 const stepLabels = ["Occasion", "Details", "You"];
 const stepFields = [["eventType"], ["date", "guests"], ["name", "phone", "email"]];
@@ -253,3 +253,4 @@ export default function Contact() {
     </div>
   );
 }
+
