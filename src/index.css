@@ -69,3 +69,7 @@ h1 em, h2 em { font-style: italic; }
 input[type="date"] { display: block; width: 100%; min-width: 0; max-width: 100%; -webkit-appearance: none; appearance: none; text-align: left; min-height: 3.25rem; }
 input[type="date"]::-webkit-date-and-time-value { text-align: left; min-height: 1.4em; }
 input[type="date"]::-webkit-datetime-edit { padding: 0; }
+
+/* Empty date fields show our own placeholder (iOS shows nothing, desktop shows dd/mm/yyyy), so hide the native text */
+input[type="date"].date-empty::-webkit-datetime-edit { color: transparent; }
+input[type="date"].date-empty::-webkit-datetime-edit-fields-wrapper { color: transparent; }
