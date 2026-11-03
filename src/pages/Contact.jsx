@@ -85,7 +85,7 @@ export default function Contact() {
   const contactRow = "flex items-center gap-3 text-white/80 transition-colors hover:text-lilac";
 
   return (
-    <>
+    <div className="page-in">
       <PageHero
         eyebrow="Contact"
         title={<>Let’s plan your <em className="text-lilac">occasion</em></>}
@@ -245,6 +245,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

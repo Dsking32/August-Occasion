@@ -10,7 +10,7 @@ import FinalCTASection from "../components/FinalCTASection.jsx";
 
 export default function Home() {
   return (
-    <>
+    <div className="page-in">
       <HeroSection />
       <Marquee />
       <ExperienceSection />
@@ -20,6 +20,6 @@ export default function Home() {
       <GallerySection />
       <TestimonialsSection />
       <FinalCTASection />
-    </>
+    </div>
   );
 }

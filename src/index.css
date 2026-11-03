@@ -31,6 +31,8 @@ h1 em, h2 em { font-style: italic; }
   .btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.95rem 1.9rem; font-weight: 600; font-size: 0.9rem; border-radius: 9999px; transition: background .3s, background-position .5s, color .3s, border-color .3s, transform .3s, box-shadow .3s; }
   .btn svg { transition: transform .3s; }
   .btn:hover svg { transform: translateX(4px); }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); }
   .btn-solid { background: #D81F63; color: #fff; }
   .btn-solid:hover { background: #B8184F; }
   .btn-light { background: #fff; color: var(--color-violet); }
@@ -44,6 +46,9 @@ h1 em, h2 em { font-style: italic; }
 .zoom img { transition: transform 1s ease; }
 .zoom:hover img { transform: scale(1.06); }
 
+@keyframes pagein { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.page-in { animation: pagein .7s cubic-bezier(.22,1,.36,1) both; }
+
 @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.09); } }
 .kenburns { animation: kenburns 22s ease-in-out infinite alternate; }
 
@@ -56,7 +61,7 @@ h1 em, h2 em { font-style: italic; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .kenburns, .marquee-track { animation: none; }
+  .kenburns, .marquee-track, .page-in { animation: none; }
   .zoom img, .btn, .btn svg { transition: none; }
 }
 

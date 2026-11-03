@@ -1,4 +1,6 @@
 import Photo from "../components/Photo.jsx";
+import { motion, useReducedMotion } from "framer-motion";
+import Reveal from "../components/Reveal.jsx";
 import PageHero from "../components/PageHero.jsx";
 import FinalCTASection from "../components/FinalCTASection.jsx";
 import { brand } from "../data/site.js";
@@ -36,9 +38,10 @@ const journey = [
 ];
 
 export default function About() {
+  const reduce = useReducedMotion();
 
   return (
-    <>
+    <div className="page-in">
       <PageHero
         eyebrow="About Us"
         title={<>About <em className="text-lilac">August Occasions</em></>}
@@ -49,13 +52,13 @@ export default function About() {
       {/* The CEO */}
       <section className="overflow-hidden bg-ivory pb-24 pt-24 md:pb-32 md:pt-32">
         <div className="mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-12 lg:gap-14">
-          <div className="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
+          <Reveal direction="right" className="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
             <div className="lg:sticky lg:top-10">
               <img src="/images/ceo-portrait.webp" alt="Olufunmilayo Ogunwo, CEO of August Occasions" width="771" height="1080" className="relative block h-auto w-full" />
             </div>
-          </div>
+          </Reveal>
 
-          <div className="lg:col-span-7">
+          <Reveal direction="left" delay={0.1} className="lg:col-span-7">
             <h2 className="text-[clamp(2.4rem,5vw,4.2rem)] leading-[0.98] tracking-[-0.01em]">{ceo.name}</h2>
             <p className="mt-3 font-script text-3xl text-violet">{ceo.title}</p>
             <div className="mt-8 flex flex-col gap-1 border border-violet/30 bg-white p-5 sm:flex-row sm:items-center sm:gap-6">
@@ -72,7 +75,7 @@ export default function About() {
             <ul className="mt-6 space-y-1.5 text-sm text-muted">
               {ceo.memberships.map((m) => <li key={m}>{m}</li>)}
             </ul>
-          </div>
+          </Reveal>
         </div>
 
         {/* Her path, in order */}
@@ -94,15 +97,15 @@ export default function About() {
       {/* Story and how we work */}
       <section className="relative overflow-hidden bg-royal py-24 text-white md:py-32">
         <div className="mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-          <div>
+          <Reveal direction="right">
             <h2 className="text-[clamp(2.4rem,5.2vw,4.2rem)] leading-[1] tracking-[-0.01em]">Every event has a purpose. The drinks should <span className="text-lilac">respect it.</span></h2>
             <div className="mt-8 max-w-md space-y-4 leading-relaxed text-white/75">
               <p>August Occasions serves cocktails and exotic drinks at weddings, corporate events and private celebrations across Lagos.</p>
               <p>Our name says what we believe. Whether it is an intimate dinner or a grand celebration, we attach importance to it, from the first conversation to the last toast.</p>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="relative pb-80 sm:pb-60">
+          <Reveal direction="left" delay={0.1} className="relative pb-80 sm:pb-60">
             <div className="zoom overflow-hidden rounded-sm shadow-2xl">
               <Photo name="experience-bar-setup" alt="" className="aspect-[3/2] w-full object-cover" />
             </div>
@@ -120,37 +123,37 @@ export default function About() {
                 ))}
               </ul>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* The team and how an event runs */}
       <section className="overflow-hidden bg-mist py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-8 md:grid-cols-12 md:items-end">
+          <Reveal className="grid gap-8 md:grid-cols-12 md:items-end">
             <h2 className="text-[clamp(2.6rem,6vw,4.8rem)] leading-[0.95] tracking-[-0.01em] md:col-span-7">The people behind the bar</h2>
             <p className="max-w-md leading-relaxed text-muted md:col-span-5">One team plans the menu, builds the bar and serves your guests, so every detail is handled by people who know it.</p>
-          </div>
+          </Reveal>
 
           {/* Both team photos are shown whole, never cropped */}
-          <div className="relative mt-14 sm:pb-14">
+          <Reveal className="relative mt-14 sm:pb-14">
             <div className="mr-3.5 sm:mr-0 sm:w-[74%]">
               <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="block h-auto w-full shadow-xl" />
             </div>
             <div className="ml-auto mt-8 w-3/5 border-[6px] border-mist shadow-2xl sm:absolute sm:bottom-0 sm:right-0 sm:mt-0 sm:w-[36%] sm:border-8">
               <img src={brand.four} alt="Four members of the August Occasions team" loading="lazy" width="1030" height="824" className="block h-auto w-full" />
             </div>
-          </div>
+          </Reveal>
 
           <div className="mt-20">
             <p className="font-script text-3xl text-violet sm:text-4xl">How an event runs</p>
             <ol className="mt-6 border-t border-violet/25">
               {journey.map((j, i) => (
-                <li key={j.title} className="group grid items-baseline gap-2 border-b border-violet/25 py-8 transition-all duration-500 hover:bg-white hover:px-6 md:grid-cols-[4rem_1fr_1.2fr] md:gap-8">
+                <motion.li key={j.title} {...(reduce ? {} : { initial: { opacity: 0, y: 28 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "0px 0px -10% 0px" }, transition: { duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] } })} className="group grid items-baseline gap-2 border-b border-violet/25 py-8 transition-all duration-500 hover:bg-white hover:px-6 md:grid-cols-[4rem_1fr_1.2fr] md:gap-8">
                   <span className="font-serif text-2xl text-violet/50 transition-colors group-hover:text-violet">{i + 1}</span>
                   <h3 className="text-[clamp(2.2rem,4.6vw,3.6rem)] leading-none">{j.title}</h3>
                   <p className="max-w-md leading-relaxed text-muted">{j.text}</p>
-                </li>
+                </motion.li>
               ))}
             </ol>
           </div>
@@ -158,6 +161,6 @@ export default function About() {
       </section>
 
       <FinalCTASection />
-    </>
+    </div>
   );
 }

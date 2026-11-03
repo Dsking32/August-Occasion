@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Reveal from "./Reveal.jsx";
+import ImageReveal from "./ImageReveal.jsx";
 import { reviews } from "../data/site.js";
 
 // Until real reviews are added to `reviews` in src/data/site.js, a brand statement is shown instead.
@@ -34,11 +35,7 @@ export default function TestimonialsSection() {
             </div>
           )}
         </Reveal>
-        <Reveal delay={0.1}>
-          <div className="mx-auto max-w-sm overflow-hidden rounded-t-full lg:max-w-none">
-            <img src="/images/testimonial-waiter.webp" alt="An August Occasions waiter in a purple bow tie serving bottled water at an event" loading="lazy" width="700" height="871" className="aspect-[4/5] w-full object-cover object-[50%_30%]" />
-          </div>
-        </Reveal>
+        <ImageReveal src="/images/testimonial-waiter.webp" alt="An August Occasions waiter in a purple bow tie serving bottled water at an event" width="700" height="871" delay={0.1} className="mx-auto w-full max-w-sm rounded-t-full lg:max-w-none" imgClassName="aspect-[4/5] w-full object-cover object-[50%_30%]" />
       </div>
     </section>
   );
