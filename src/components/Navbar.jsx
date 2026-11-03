@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { brand, nav } from "../data/site.js";
-import ScrollProgress from "./ScrollProgress.jsx";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -25,7 +24,6 @@ export default function Navbar() {
 
   return (
     <>
-      <ScrollProgress />
       <header className="absolute inset-x-0 top-0 z-50 bg-gradient-to-b from-midnight/60 to-transparent">
         <nav aria-label="Main" className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 sm:px-6 lg:px-8">
           <Link to="/" aria-label="August Occasions home" onClick={close} className="shrink-0 transition-transform duration-300 hover:scale-105">
