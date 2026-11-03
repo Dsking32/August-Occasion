@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { brand, nav } from "../data/site.js";
@@ -20,7 +20,7 @@ export default function Navbar() {
   }, [open]);
 
   const desktopLink = ({ isActive }) =>
-    `group relative py-1 text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-0.5 hover:text-lilac before:absolute before:-bottom-0.5 before:left-0 before:h-px before:w-full before:origin-center before:scale-x-0 before:bg-lilac before:transition-transform before:duration-300 hover:before:scale-x-100 ${isActive ? "text-lilac" : "text-white"}`;
+    `relative origin-center py-1 text-sm font-medium tracking-wide transition-all duration-300 ease-out hover:scale-110 hover:text-lilac ${isActive ? "text-lilac" : "text-white"}`;
 
   return (
     <>
