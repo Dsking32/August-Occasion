@@ -3,12 +3,12 @@ import { ArrowRight, GlassWater, GraduationCap, Martini, PartyPopper, Truck, Win
 import Reveal from "./Reveal.jsx";
 
 const services = [
-  { icon: GlassWater, title: "Drinks Service", text: "A wide variety of drinks, from water, soft drinks and malt drinks to fruit juices, served professionally at your events." },
-  { icon: Martini, title: "Cocktail Service", text: "Classic and signature cocktails, mixed fresh at the bar and served with impeccable presentation." },
-  { icon: Truck, title: "Mobile Bar Service", text: "A luxury bar brought to your event for premium drinks display, perfectly handled by our professional bartenders." },
-  { icon: PartyPopper, title: "After-Party Entertainment", text: "Drinks and good company that keep the celebration going after the main event." },
-  { icon: GraduationCap, title: "Training & Internship", text: "Hands-on training in drinks or cocktail service, and internship opportunities to learn on the job with access to mentorship from the CEO." },
-  { icon: Wine, title: "Welcome Drinks", text: "A chilled first pour that greets your guests as they arrive." },
+  { icon: GlassWater, photo: "/images/gallery/iced-soft-drinks.webp", title: "Drinks Service", text: "A wide variety of drinks, from water, soft drinks and malt drinks to fruit juices, served professionally at your events." },
+  { icon: Martini, photo: "/images/gallery/frozen-cocktail-trio.webp", title: "Cocktail Service", text: "Classic and signature cocktails, mixed fresh at the bar and served with impeccable presentation." },
+  { icon: Truck, photo: "/images/gallery/geometric-bar.webp", title: "Mobile Bar Service", text: "A luxury bar brought to your event for premium drinks display, perfectly handled by our professional bartenders." },
+  { icon: PartyPopper, photo: "/images/gallery/gold-leaf-bar.webp", title: "After-Party Entertainment", text: "Drinks and good company that keep the celebration going after the main event." },
+  { icon: GraduationCap, photo: "/images/gallery/team-baskets.webp", title: "Training & Internship", text: "Hands-on training in drinks or cocktail service, and internship opportunities to learn on the job with access to mentorship from the CEO." },
+  { icon: Wine, photo: "/images/gallery/champagne-on-ice.webp", title: "Welcome Drinks", text: "A chilled first pour that greets your guests as they arrive." },
 ];
 
 export default function ServicesSection() {
@@ -23,14 +23,15 @@ export default function ServicesSection() {
           <Link to="/contact" className="btn btn-solid self-start">Plan Your Event <ArrowRight size={16} /></Link>
         </Reveal>
 
-        <ul className="mt-12 grid gap-px overflow-hidden border border-violet/15 bg-violet/15 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ icon: Icon, title, text }, i) => (
+        <ul className="mt-12 grid gap-px border border-violet/15 bg-violet/15 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map(({ icon: Icon, photo, title, text }, i) => (
             <Reveal key={title} delay={(i % 3) * 0.07} className="bg-white">
-              <li className="group h-full list-none p-8 transition-colors duration-300 hover:bg-ivory">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-mist text-violet transition-all duration-300 group-hover:scale-110 group-hover:bg-violet group-hover:text-white">
-                  <Icon size={22} strokeWidth={1.5} />
+              <li className="group relative h-full list-none p-8 transition-all duration-500 ease-out after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-0 after:bg-violet after:transition-all after:duration-500 hover:z-10 hover:-translate-y-1.5 hover:bg-ivory hover:shadow-[0_28px_50px_-26px_rgba(43,10,78,0.45)] hover:after:w-full">
+                <span className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-mist text-violet ring-2 ring-violet/15 ring-offset-[3px] ring-offset-white transition-all duration-500 group-hover:ring-violet">
+                  <Icon size={24} strokeWidth={1.5} className="absolute" />
+                  <img src={photo} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} className="relative h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-125" />
                 </span>
-                <h3 className="mt-6 text-2xl leading-tight">{title}</h3>
+                <h3 className="mt-6 text-2xl leading-tight transition-colors duration-300 group-hover:text-violet">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
               </li>
             </Reveal>
