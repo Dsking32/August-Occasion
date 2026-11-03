@@ -26,7 +26,7 @@ export default function ServicesSection() {
         <ul className="mt-12 grid gap-px border border-violet/15 bg-violet/15 sm:grid-cols-2 lg:grid-cols-3">
           {services.map(({ icon: Icon, photo, title, text }, i) => (
             <Reveal key={title} delay={(i % 3) * 0.07} className="bg-white">
-              <li className="group relative h-full list-none p-8 transition-all duration-500 ease-out after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-0 after:bg-violet after:transition-all after:duration-500 hover:z-10 hover:-translate-y-1.5 hover:bg-ivory hover:shadow-[0_28px_50px_-26px_rgba(43,10,78,0.45)] hover:after:w-full">
+              <li className="group relative h-full list-none p-8 transition-all duration-500 ease-out hover:z-10 hover:-translate-y-1.5 hover:bg-ivory hover:shadow-[0_28px_50px_-26px_rgba(43,10,78,0.45)]">
                 <span className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-mist text-violet ring-2 ring-violet/15 ring-offset-[3px] ring-offset-white transition-all duration-500 group-hover:ring-violet">
                   <Icon size={24} strokeWidth={1.5} className="absolute" />
                   <img src={photo} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} className="relative h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-125" />
