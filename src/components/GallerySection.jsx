@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, EffectCoverflow, Keyboard } from "swiper/modules";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
@@ -13,38 +14,52 @@ import "swiper/css/effect-coverflow";
 // (for example "gallery-toast" or "gallery-bartender"). Make sure no two slots use the same picture.
 const slots = ["gallery-cocktail", "signature-cocktails", "drink-purple-cocktail", "hero-cocktail-bar", "drink-citrus-mocktail", "experience-bar-setup"];
 const pad = (n) => String(n).padStart(2, "0");
-function Lightbox({ items, index, setIndex, onClose }) {
+function Lightbox({ items, index, onClose }) {
   const closeBtn = useRef(null);
+  const [lb, setLb] = useState(null);
+  const [cur, setCur] = useState(index);
   const n = items.length;
 
   useEffect(() => {
     const prev = document.activeElement;
     document.body.style.overflow = "hidden";
     closeBtn.current?.focus();
-    return () => { document.body.style.overflow = ""; prev?.focus?.(); };
-  }, []);
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") setIndex((index + 1) % n);
-      if (e.key === "ArrowLeft") setIndex((index - 1 + n) % n);
-    };
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [index, n, onClose, setIndex]);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", onKey); prev?.focus?.(); };
+  }, [onClose]);
 
-  const btn = "absolute flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10";
-  return (
-    <div role="dialog" aria-modal="true" aria-label="Photo gallery" className="fixed inset-0 z-[80] flex items-center justify-center bg-midnight/95 p-4" onClick={onClose}>
+  const btn = "absolute z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-midnight/60 text-white backdrop-blur hover:bg-white/15";
+  return createPortal(
+    <div role="dialog" aria-modal="true" aria-label="Photo gallery" className="fixed inset-0 z-[80] bg-midnight/[.98]" onClick={onClose}>
       <button ref={closeBtn} onClick={onClose} aria-label="Close gallery" className={`${btn} right-4 top-4`}><X size={22} /></button>
-      {n > 1 && <button onClick={(e) => { e.stopPropagation(); setIndex((index - 1 + n) % n); }} aria-label="Previous photo" className={`${btn} left-3`}><ArrowLeft size={20} /></button>}
-      <figure onClick={(e) => e.stopPropagation()} className="max-h-[85vh] max-w-4xl">
-        <img src={items[index].src} alt={items[index].alt} className="max-h-[80vh] w-auto max-w-full object-contain" />
-        <figcaption className="mt-3 text-center text-sm text-white/70">{pad(index + 1)} / {pad(n)}</figcaption>
-      </figure>
-      {n > 1 && <button onClick={(e) => { e.stopPropagation(); setIndex((index + 1) % n); }} aria-label="Next photo" className={`${btn} right-3`}><ArrowRight size={20} /></button>}
-    </div>
+      <p className="absolute left-5 top-6 z-10 font-serif text-xl text-lilac" aria-live="polite">{pad(cur + 1)} <span className="text-white/40">/ {pad(n)}</span></p>
+      {n > 1 && <button onClick={(e) => { e.stopPropagation(); lb?.slidePrev(); }} aria-label="Previous photo" className={`${btn} left-3 top-1/2 hidden -translate-y-1/2 sm:flex`}><ArrowLeft size={20} /></button>}
+      {n > 1 && <button onClick={(e) => { e.stopPropagation(); lb?.slideNext(); }} aria-label="Next photo" className={`${btn} right-3 top-1/2 hidden -translate-y-1/2 sm:flex`}><ArrowRight size={20} /></button>}
+      <Swiper
+        modules={[A11y, Keyboard]}
+        onSwiper={setLb}
+        onSlideChange={(s) => setCur(s.realIndex)}
+        initialSlide={index}
+        keyboard
+        rewind
+        grabCursor
+        spaceBetween={32}
+        speed={450}
+        className="h-full w-full"
+      >
+        {items.map((it, i) => (
+          <SwiperSlide key={it.name} className="!flex !h-full items-center justify-center px-4 pb-16 pt-20 sm:px-20">
+            <figure className="flex max-h-full max-w-full flex-col items-center" onClick={(e) => e.stopPropagation()}>
+              <img src={it.src} alt={it.alt} loading={Math.abs(i - index) < 2 ? "eager" : "lazy"} draggable="false" className="max-h-[72vh] w-auto max-w-full rounded-sm object-contain" />
+              <figcaption className="mt-3 max-w-xl text-center text-sm text-white/65">{it.alt}</figcaption>
+            </figure>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <p className="pointer-events-none absolute inset-x-0 bottom-5 text-center text-xs tracking-widest text-white/40 sm:hidden">SWIPE FOR MORE</p>
+    </div>,
+    document.body
   );
 }
 
@@ -104,7 +119,7 @@ export default function GallerySection() {
       <div className="mx-auto mt-10 max-w-6xl px-6">
         <button onClick={() => setBox(active)} className="btn btn-solid">View Gallery <ArrowRight size={16} /></button>
       </div>
-      {box !== null && <Lightbox items={items} index={box} setIndex={setBox} onClose={() => setBox(null)} />}
+      {box !== null && <Lightbox items={items} index={box} onClose={() => setBox(null)} />}
     </section>
   );
 }

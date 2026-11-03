@@ -15,6 +15,7 @@ export const galleryPhotos = [
   g("gold-mandala-bar", "A gold and black mandala-pattern bar with syrups, rum and glassware", "contain"),
   g("pouring-drink", "A bartender in an August Occasions jacket pouring a drink into a crystal glass beside white flowers"),
   g("tray-service", "A waiter in an August Occasions bow tie serving red and golden drinks on a tray"),
+  g("team-service", "Seven August Occasions waiters and bartenders in white and purple uniforms standing on a blue carpet at an event", "contain"),
   g("bar-team", "The August Occasions bar team standing around a lit bar", "contain"),
   g("team-baskets", "The August Occasions team in purple and white chef jackets with baskets of soft drinks", "contain"),
   g("geometric-bar", "A white geometric bar with the August Occasions logo, syrups and a drink dispenser"),

@@ -145,6 +145,18 @@ export default function About() {
             </div>
           </Reveal>
 
+          {/* The service team on the floor: shown whole, never cropped */}
+          <Reveal className="mt-20 grid items-end gap-8 lg:grid-cols-[0.8fr_1.6fr] lg:gap-14">
+            <div className="order-2 lg:order-1">
+              <p className="font-script text-3xl text-violet sm:text-4xl">On the floor</p>
+              <h3 className="mt-3 text-[clamp(1.9rem,3.4vw,2.6rem)] leading-tight">Ready before your first guest arrives</h3>
+              <p className="mt-4 max-w-sm leading-relaxed text-muted">Our waiters and bartenders arrive early, in uniform and briefed, so service is smooth from the first pour to the last toast.</p>
+            </div>
+            <div className="order-1 mr-3.5 sm:mr-0 lg:order-2">
+              <img src="/images/team-service.webp" alt="Seven August Occasions waiters and bartenders in white and purple uniforms standing on a blue carpet at an event" loading="lazy" width="1280" height="949" className="block h-auto w-full shadow-[14px_14px_0_0_var(--color-lilac)]" />
+            </div>
+          </Reveal>
+
           <div className="mt-20">
             <p className="font-script text-3xl text-violet sm:text-4xl">How an event runs</p>
             <ol className="mt-6 border-t border-violet/25">

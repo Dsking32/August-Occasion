@@ -46,7 +46,7 @@ h1 em, h2 em { font-style: italic; }
 .zoom img { transition: transform 1s ease; }
 .zoom:hover img { transform: scale(1.06); }
 
-@keyframes pagein { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes pagein { from { opacity: 0; } to { opacity: 1; } }
 .page-in { animation: pagein .7s cubic-bezier(.22,1,.36,1) both; }
 
 @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.09); } }
