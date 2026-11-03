@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
             </div>
           )}
         </Reveal>
-        <ImageReveal src="/images/testimonial-waiter.webp" alt="An August Occasions waiter in a purple bow tie serving bottled water at an event" width="700" height="871" delay={0.1} className="mx-auto w-full max-w-sm rounded-t-full lg:max-w-none" imgClassName="aspect-[4/5] w-full object-cover object-[50%_30%]" />
+        <ImageReveal src="/images/testimonial-drinks.webp" alt="A smiling August Occasions bartender in a purple and white jacket carrying a tray of soft drinks" width="960" height="960" delay={0.1} className="mx-auto w-full max-w-sm rounded-t-full lg:max-w-none" imgClassName="aspect-square w-full object-cover" />
       </div>
     </section>
   );
