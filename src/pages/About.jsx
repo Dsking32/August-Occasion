@@ -135,25 +135,27 @@ export default function About() {
             <p className="max-w-md leading-relaxed text-muted md:col-span-5">One team plans the menu, builds the bar and serves your guests, so every detail is handled by people who know it.</p>
           </Reveal>
 
-          {/* Both team photos are shown whole, never cropped */}
-          <Reveal className="relative mt-14 sm:pb-14">
-            <div className="mr-3.5 sm:mr-0 sm:w-[74%]">
-              <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="block h-auto w-full shadow-xl" />
-            </div>
-            <div className="ml-auto mt-8 w-3/5 border-[6px] border-mist shadow-2xl sm:absolute sm:bottom-0 sm:right-0 sm:mt-0 sm:w-[36%] sm:border-8">
-              <img src={brand.four} alt="Four members of the August Occasions team" loading="lazy" width="1030" height="824" className="block h-auto w-full" />
-            </div>
+          {/* Team photos are shown whole, never cropped. On phones they stack neatly at one width, with a small caption each. */}
+          <Reveal className="relative mt-12 space-y-10 sm:mt-14 sm:space-y-0 sm:pb-14">
+            <figure className="sm:w-[74%]">
+              <img src={brand.group} alt="The August Occasions team in matching branded t-shirts" loading="lazy" width="1080" height="776" className="block h-auto w-full shadow-[0_24px_40px_-26px_rgba(43,10,78,0.55)] sm:shadow-xl" />
+              <figcaption className="mt-4 flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-violet sm:hidden"><span className="h-px w-8 bg-violet" />The whole team</figcaption>
+            </figure>
+            <figure className="sm:absolute sm:bottom-0 sm:right-0 sm:w-[36%] sm:border-8 sm:border-mist sm:shadow-2xl">
+              <img src={brand.four} alt="Four members of the August Occasions team" loading="lazy" width="1030" height="824" className="block h-auto w-full shadow-[0_24px_40px_-26px_rgba(43,10,78,0.55)] sm:shadow-none" />
+              <figcaption className="mt-4 flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-violet sm:hidden"><span className="h-px w-8 bg-violet" />Behind the bar</figcaption>
+            </figure>
           </Reveal>
 
-          {/* The service team on the floor: shown whole, never cropped */}
-          <Reveal className="mt-20 grid items-end gap-8 lg:grid-cols-[0.8fr_1.6fr] lg:gap-14">
-            <div className="order-2 lg:order-1">
+          {/* The service team on the floor */}
+          <Reveal className="mt-12 grid items-end gap-6 sm:mt-20 lg:grid-cols-[0.8fr_1.6fr] lg:gap-14">
+            <figure className="lg:order-2">
+              <img src="/images/team-service.webp" alt="Seven August Occasions waiters and bartenders in white and purple uniforms standing on a blue carpet at an event" loading="lazy" width="1280" height="949" className="block h-auto w-full shadow-[0_24px_40px_-26px_rgba(43,10,78,0.55)] lg:shadow-[14px_14px_0_0_var(--color-lilac)]" />
+            </figure>
+            <div className="lg:order-1">
               <p className="font-script text-3xl text-violet sm:text-4xl">On the floor</p>
-              <h3 className="mt-3 text-[clamp(1.9rem,3.4vw,2.6rem)] leading-tight">Ready before your first guest arrives</h3>
+              <h3 className="mt-2 text-[clamp(1.9rem,3.4vw,2.6rem)] leading-tight">Ready before your first guest arrives</h3>
               <p className="mt-4 max-w-sm leading-relaxed text-muted">Our waiters and bartenders arrive early, in uniform and briefed, so service is smooth from the first pour to the last toast.</p>
-            </div>
-            <div className="order-1 mr-3.5 sm:mr-0 lg:order-2">
-              <img src="/images/team-service.webp" alt="Seven August Occasions waiters and bartenders in white and purple uniforms standing on a blue carpet at an event" loading="lazy" width="1280" height="949" className="block h-auto w-full shadow-[14px_14px_0_0_var(--color-lilac)]" />
             </div>
           </Reveal>
 
