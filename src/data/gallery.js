@@ -25,5 +25,7 @@ export const galleryPhotos = [
   g("fresh-juice-bucket", "A bucket of fresh juice bottles with August Occasions labels", "contain"),
   g("cooler-baskets", "Drinks in baskets and a cooler packed with ice for event service"),
   g("iced-soft-drinks", "A tub of soft drinks and juices chilling on ice"),
+  g("tray-glasses", "A waiter in an August Occasions bow tie holding a tray of five glasses of drinks"),
+  g("led-champagne", "A performer in an LED helmet holding a champagne bottle in a gun-style holder at an event", "contain"),
   g("waiter-water", "An August Occasions waiter in a purple bow tie holding a tray of bottled water beside tall white flowers", "contain"),
 ];

@@ -5,10 +5,10 @@ import Reveal from "./Reveal.jsx";
 const services = [
   { icon: GlassWater, photo: "/images/gallery/iced-soft-drinks.webp", title: "Drinks Service", text: "A wide variety of drinks, from water, soft drinks and malt drinks to fruit juices, served professionally at your events." },
   { icon: Martini, photo: "/images/gallery/frozen-cocktail-trio.webp", title: "Cocktail Service", text: "Classic and signature cocktails, mixed fresh at the bar and served with impeccable presentation." },
-  { icon: Truck, photo: "/images/gallery/geometric-bar.webp", title: "Mobile Bar Service", text: "A luxury bar brought to your event for premium drinks display, perfectly handled by our professional bartenders." },
-  { icon: PartyPopper, photo: "/images/gallery/gold-leaf-bar.webp", title: "After-Party Entertainment", text: "Drinks and good company that keep the celebration going after the main event." },
+  { icon: Truck, photo: "/images/services/mobile-bar.webp", title: "Mobile Bar Service", text: "A luxury bar brought to your event for premium drinks display, perfectly handled by our professional bartenders." },
+  { icon: PartyPopper, photo: "/images/services/after-party.webp", title: "After-Party Entertainment", text: "Drinks and good company that keep the celebration going after the main event." },
   { icon: GraduationCap, photo: "/images/gallery/team-baskets.webp", title: "Training & Internship", text: "Hands-on training in drinks or cocktail service, and internship opportunities to learn on the job with access to mentorship from the CEO." },
-  { icon: Wine, photo: "/images/gallery/champagne-on-ice.webp", title: "Welcome Drinks", text: "A chilled first pour that greets your guests as they arrive." },
+  { icon: Wine, photo: "/images/services/welcome-drinks.webp", title: "Welcome Drinks", text: "A chilled first pour that greets your guests as they arrive." },
 ];
 
 export default function ServicesSection() {
